@@ -167,93 +167,193 @@
             <!-- DECORATIVE GRID -->
             <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#00ff41 1px, transparent 1px); background-size: 40px 40px;"></div>
 
-            <!-- RESEARCH LOG SECTION -->
-            <section id="research-log" class="py-12 px-8 md:px-16 max-w-7xl mx-auto relative z-10">
-                <div class="flex items-center gap-4 mb-12">
-                    <span class="text-primary-neon font-black text-xl">RESEARCH_STREAM: INITIALIZED</span>
-                    <div class="h-px flex-1 bg-white/5"></div>
+            <!-- PAGE HEADER -->
+            <section class="py-12 px-8 md:px-16 max-w-7xl mx-auto relative z-10">
+                <div class="flex items-center gap-4 mb-2">
+                    <div class="h-0.5 w-12 bg-primary-neon"></div>
+                    <span class="text-primary-neon text-[10px] tracking-[0.4em] uppercase">Field_Dispatch: ACTIVE</span>
                 </div>
-
-                <!-- FEATURE CARD: FEATURED_PAPER -->
-                <div class="mb-20">
-                    <div class="flex items-center gap-3 mb-8">
-                        <span class="w-1.5 h-1.5 bg-secondary-cyan"></span>
-                        <h2 class="text-xs font-black tracking-[0.5em] text-on-surface-variant uppercase">&gt; FEATURED_RESEARCH</h2>
-                    </div>
-
-                    <div class="feature-card grid grid-cols-1 lg:grid-cols-2 gap-0 min-h-[400px]">
-                        <div class="feature-image-container relative h-[300px] lg:h-auto overflow-hidden bg-surface-inset flex items-center justify-center p-12">
-                            <span class="material-symbols-outlined text-[120px] text-secondary-cyan/20">description</span>
-                            <div class="absolute inset-0 bg-gradient-to-br from-secondary-cyan/5 to-transparent"></div>
-                        </div>
-                        <div class="p-8 lg:p-12 flex flex-col justify-center bg-surface/40 backdrop-blur-xl relative z-10">
-                            <div class="mb-6">
-                                <span class="bg-secondary-cyan/20 text-secondary-cyan text-[8px] font-black px-2 py-0.5 border border-secondary-cyan/30 tracking-[0.2em] uppercase mb-4 inline-block">FORMAL_ANALYSIS_MOD_01</span>
-                                <h3 class="text-5xl font-black tracking-tighter uppercase mb-2 leading-tight">Zero-Day Vulnerability Classification using Adversarial ML</h3>
-                                <p class="text-on-surface-variant text-[10px] font-bold tracking-widest uppercase opacity-60">Source: Local_Archive // Status: PEER_REVIEWED</p>
-                            </div>
-
-                            <div class="grid grid-cols-2 gap-8 mb-10">
-                                <div>
-                                    <span class="text-[8px] font-black tracking-widest text-on-surface-variant uppercase opacity-50 block mb-1">FIELD_OF_STUDY</span>
-                                    <span class="text-2xl font-bold font-mono tracking-tight">AI & CYBERSEC</span>
-                                </div>
-                                <div>
-                                    <span class="text-[8px] font-black tracking-widest text-on-surface-variant uppercase opacity-50 block mb-1">IMPACT_FACTOR</span>
-                                    <span class="text-2xl font-bold font-mono tracking-tight text-secondary-cyan">9.2_ALPHA</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- RESEARCH_BASE_GRID -->
-                <div class="mb-20">
-                    <div class="flex items-center gap-4 mb-8">
-                        <span class="w-1.5 h-1.5 bg-on-surface-variant opacity-30"></span>
-                        <h2 class="text-xs font-black tracking-[0.3em] text-on-surface-variant uppercase">&gt; RESEARCH_NODES_GRID</h2>
-                        <div class="h-px flex-1 bg-white/5 ml-4"></div>
-                    </div>
-
-                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                        <!-- PAPER 1 -->
-                        <div class="grid-card-tech bg-surface-inset border border-white/5 p-6 group hover:border-secondary-cyan/30 transition-all">
-                            <span class="material-symbols-outlined text-secondary-cyan mb-4">terminal</span>
-                            <h4 class="text-[10px] font-black tracking-widest uppercase mb-2 leading-relaxed">Malware Behavioral Patterning in Distributed Systems</h4>
-                            <p class="text-[8px] text-on-surface-variant opacity-50 line-clamp-3 mb-4">Comparative study on signature-less detection mechanisms across heterogeneous network topologies.</p>
-                            <div class="flex justify-between items-center text-[7px] text-secondary-cyan font-bold">
-                                <span>TAG: SYSTEM_SECURITY</span>
-                                <span>REF_01</span>
-                            </div>
-                        </div>
-
-                        <!-- PAPER 2 -->
-                        <div class="grid-card-tech bg-surface-inset border border-white/5 p-6 group hover:border-secondary-cyan/30 transition-all">
-                            <span class="material-symbols-outlined text-secondary-cyan mb-4">account_tree</span>
-                            <h4 class="text-[10px] font-black tracking-widest uppercase mb-2 leading-relaxed">Cryptographic primitives for sub-linear verification</h4>
-                            <p class="text-[8px] text-on-surface-variant opacity-50 line-clamp-3 mb-4">Exploring zero-knowledge proofs for authenticated data structures in trustless environments.</p>
-                            <div class="flex justify-between items-center text-[7px] text-secondary-cyan font-bold">
-                                <span>TAG: CRYPTOGRAPHY</span>
-                                <span>REF_02</span>
-                            </div>
-                        </div>
-
-                        <!-- PAPER 3 -->
-                        <div class="grid-card-tech bg-surface-inset border border-white/5 p-6 group hover:border-secondary-cyan/30 transition-all">
-                            <span class="material-symbols-outlined text-secondary-cyan mb-4">sensors</span>
-                            <h4 class="text-[10px] font-black tracking-widest uppercase mb-2 leading-relaxed">Side-channel resistance in edge-compute nodes</h4>
-                            <p class="text-[8px] text-on-surface-variant opacity-50 line-clamp-3 mb-4">Mitigating power-analysis attacks in low-resource IoT devices through masked scheduling.</p>
-                            <div class="flex justify-between items-center text-[7px] text-secondary-cyan font-bold">
-                                <span>TAG: HARDWARE_SEC</span>
-                                <span>REF_03</span>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-
+                <h1 class="text-4xl md:text-6xl font-black tracking-tighter uppercase mb-2">DISPATCH_LOG</h1>
+                <p class="text-on-surface-variant text-xs tracking-widest max-w-xl opacity-60 uppercase font-bold">CTF writeups, security lab notes, and field observations from active engagements.</p>
             </section>
+
+            <!-- WRITEUPS_LOG SECTION -->
+            <section id="writeups" class="py-8 px-8 md:px-16 max-w-7xl mx-auto relative z-10">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-1.5 h-1.5 bg-primary-neon shadow-[0_0_6px_#00ff41]"></span>
+                    <h2 class="text-xs font-black tracking-[0.5em] text-primary-neon uppercase">&gt; WRITEUPS_LOG // HACKTHEBOX</h2>
+                    <div class="h-px flex-1 bg-white/5 ml-4"></div>
+                    <a href="https://app.hackthebox.com/users/3135772" target="_blank" class="text-[9px] font-bold tracking-widest text-primary-neon opacity-50 hover:opacity-100 transition-opacity flex items-center gap-1">
+                        VIEW_PROFILE <span class="material-symbols-outlined text-xs">open_in_new</span>
+                    </a>
+                </div>
+
+                <!-- TIER 0 -->
+                <div class="mb-10">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="text-[8px] font-black tracking-[0.3em] text-on-surface-variant opacity-40 uppercase">TIER_0 // FOUNDATIONS</span>
+                        <div class="h-px flex-1 bg-white/5"></div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+                        <!-- Meow -->
+                        <div class="bg-surface-inset border border-white/5 p-5 group hover:border-primary-neon/30 transition-all">
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="text-[7px] font-black tracking-widest text-primary-neon bg-primary-neon/10 px-2 py-0.5 border border-primary-neon/20 uppercase">VERY_EASY</span>
+                                <span class="text-[7px] text-on-surface-variant opacity-30 font-mono">HTB#001</span>
+                            </div>
+                            <h4 class="text-sm font-black tracking-tight uppercase mb-1">Meow</h4>
+                            <p class="text-[9px] text-on-surface-variant opacity-50 mb-3 leading-relaxed">Enumerated open services and gained access via Telnet using default credentials. Highlights the risk of factory-default configurations.</p>
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="text-[7px] px-2 py-0.5 bg-surface-raised border border-white/5 text-secondary-cyan font-bold">TELNET</span>
+                                <span class="text-[7px] px-2 py-0.5 bg-surface-raised border border-white/5 text-secondary-cyan font-bold">DEFAULT_CREDS</span>
+                            </div>
+                        </div>
+
+                        <!-- Fawn (Zero in their list) -->
+                        <div class="bg-surface-inset border border-white/5 p-5 group hover:border-primary-neon/30 transition-all">
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="text-[7px] font-black tracking-widest text-primary-neon bg-primary-neon/10 px-2 py-0.5 border border-primary-neon/20 uppercase">VERY_EASY</span>
+                                <span class="text-[7px] text-on-surface-variant opacity-30 font-mono">HTB#002</span>
+                            </div>
+                            <h4 class="text-sm font-black tracking-tight uppercase mb-1">Zero</h4>
+                            <p class="text-[9px] text-on-surface-variant opacity-50 mb-3 leading-relaxed">Identified an exposed FTP service allowing anonymous login. Retrieved flag by listing directory contents without authentication.</p>
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="text-[7px] px-2 py-0.5 bg-surface-raised border border-white/5 text-secondary-cyan font-bold">FTP</span>
+                                <span class="text-[7px] px-2 py-0.5 bg-surface-raised border border-white/5 text-secondary-cyan font-bold">ANON_AUTH</span>
+                            </div>
+                        </div>
+
+                        <!-- Dancing -->
+                        <div class="bg-surface-inset border border-white/5 p-5 group hover:border-primary-neon/30 transition-all">
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="text-[7px] font-black tracking-widest text-primary-neon bg-primary-neon/10 px-2 py-0.5 border border-primary-neon/20 uppercase">VERY_EASY</span>
+                                <span class="text-[7px] text-on-surface-variant opacity-30 font-mono">HTB#003</span>
+                            </div>
+                            <h4 class="text-sm font-black tracking-tight uppercase mb-1">Dancing</h4>
+                            <p class="text-[9px] text-on-surface-variant opacity-50 mb-3 leading-relaxed">Enumerated SMB shares on the target. Connected to an open network share with null/guest session and extracted the flag from an unprotected directory.</p>
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="text-[7px] px-2 py-0.5 bg-surface-raised border border-white/5 text-secondary-cyan font-bold">SMB</span>
+                                <span class="text-[7px] px-2 py-0.5 bg-surface-raised border border-white/5 text-secondary-cyan font-bold">NULL_SESSION</span>
+                            </div>
+                        </div>
+
+                        <!-- Redeemer -->
+                        <div class="bg-surface-inset border border-white/5 p-5 group hover:border-primary-neon/30 transition-all">
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="text-[7px] font-black tracking-widest text-primary-neon bg-primary-neon/10 px-2 py-0.5 border border-primary-neon/20 uppercase">VERY_EASY</span>
+                                <span class="text-[7px] text-on-surface-variant opacity-30 font-mono">HTB#004</span>
+                            </div>
+                            <h4 class="text-sm font-black tracking-tight uppercase mb-1">Redeemer</h4>
+                            <p class="text-[9px] text-on-surface-variant opacity-50 mb-3 leading-relaxed">Connected to an exposed Redis instance requiring no authentication. Enumerated keys and retrieved the flag via CLI commands.</p>
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="text-[7px] px-2 py-0.5 bg-surface-raised border border-white/5 text-secondary-cyan font-bold">REDIS</span>
+                                <span class="text-[7px] px-2 py-0.5 bg-surface-raised border border-white/5 text-secondary-cyan font-bold">NO_AUTH</span>
+                            </div>
+                        </div>
+
+                        <!-- Foundations -->
+                        <div class="bg-surface-inset border border-white/5 p-5 group hover:border-primary-neon/30 transition-all">
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="text-[7px] font-black tracking-widest text-primary-neon bg-primary-neon/10 px-2 py-0.5 border border-primary-neon/20 uppercase">VERY_EASY</span>
+                                <span class="text-[7px] text-on-surface-variant opacity-30 font-mono">HTB#000</span>
+                            </div>
+                            <h4 class="text-sm font-black tracking-tight uppercase mb-1">Foundations</h4>
+                            <p class="text-[9px] text-on-surface-variant opacity-50 mb-3 leading-relaxed">Foundation module covering core concepts in enumeration, network scanning, and basic attack methodology. Established baseline operational knowledge.</p>
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="text-[7px] px-2 py-0.5 bg-surface-raised border border-white/5 text-secondary-cyan font-bold">ENUMERATION</span>
+                                <span class="text-[7px] px-2 py-0.5 bg-surface-raised border border-white/5 text-secondary-cyan font-bold">NMAP</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- TIER 1 -->
+                <div class="mb-12">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="text-[8px] font-black tracking-[0.3em] text-on-surface-variant opacity-40 uppercase">TIER_1 // ADVANCED_RECON</span>
+                        <div class="h-px flex-1 bg-white/5"></div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+                        <!-- Appointment -->
+                        <div class="bg-surface-inset border border-white/5 p-5 group hover:border-tertiary-amber/30 transition-all">
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="text-[7px] font-black tracking-widest text-tertiary-amber bg-tertiary-amber/10 px-2 py-0.5 border border-tertiary-amber/20 uppercase">EASY</span>
+                                <span class="text-[7px] text-on-surface-variant opacity-30 font-mono">HTB#101</span>
+                            </div>
+                            <h4 class="text-sm font-black tracking-tight uppercase mb-1">Appointment</h4>
+                            <p class="text-[9px] text-on-surface-variant opacity-50 mb-3 leading-relaxed">Exploited a SQL injection vulnerability in a login form using a comment-based payload. Bypassed authentication entirely without valid credentials.</p>
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="text-[7px] px-2 py-0.5 bg-surface-raised border border-white/5 text-tertiary-amber font-bold">SQL_INJECTION</span>
+                                <span class="text-[7px] px-2 py-0.5 bg-surface-raised border border-white/5 text-tertiary-amber font-bold">AUTH_BYPASS</span>
+                            </div>
+                        </div>
+
+                        <!-- Sequel -->
+                        <div class="bg-surface-inset border border-white/5 p-5 group hover:border-tertiary-amber/30 transition-all">
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="text-[7px] font-black tracking-widest text-tertiary-amber bg-tertiary-amber/10 px-2 py-0.5 border border-tertiary-amber/20 uppercase">EASY</span>
+                                <span class="text-[7px] text-on-surface-variant opacity-30 font-mono">HTB#102</span>
+                            </div>
+                            <h4 class="text-sm font-black tracking-tight uppercase mb-1">Sequel</h4>
+                            <p class="text-[9px] text-on-surface-variant opacity-50 mb-3 leading-relaxed">Accessed a MySQL database instance using default root credentials with no password set. Enumerated tables and extracted the flag through direct SQL queries.</p>
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="text-[7px] px-2 py-0.5 bg-surface-raised border border-white/5 text-tertiary-amber font-bold">MYSQL</span>
+                                <span class="text-[7px] px-2 py-0.5 bg-surface-raised border border-white/5 text-tertiary-amber font-bold">DEFAULT_CREDS</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- FIELD_NOTES SECTION -->
+            <section id="field-notes" class="py-8 px-8 md:px-16 max-w-7xl mx-auto relative z-10 pb-24">
+                <div class="flex items-center gap-4 mb-10">
+                    <span class="w-1.5 h-1.5 bg-secondary-cyan shadow-[0_0_6px_#9cf0ff]"></span>
+                    <h2 class="text-xs font-black tracking-[0.5em] text-secondary-cyan uppercase">&gt; FIELD_NOTES // OBSERVATIONS</h2>
+                    <div class="h-px flex-1 bg-white/5 ml-4"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                    <!-- Note 1 -->
+                    <div class="bg-surface-inset border-l-2 border-secondary-cyan p-6 group hover:bg-surface-raised transition-all">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-[7px] font-black tracking-widest text-secondary-cyan uppercase">NOTE_001</span>
+                            <span class="text-[7px] text-on-surface-variant opacity-30">// Default Credential Risk</span>
+                        </div>
+                        <p class="text-[10px] text-on-surface-variant leading-relaxed opacity-70">
+                            Across Tier 0 labs, the single most common attack vector was misconfigured or default credentials — Telnet with no password, Redis with no auth, FTP with anonymous access. These aren't theoretical risks; they're real-world attack surfaces found in production every day.
+                        </p>
+                    </div>
+
+                    <!-- Note 2 -->
+                    <div class="bg-surface-inset border-l-2 border-secondary-cyan p-6 group hover:bg-surface-raised transition-all">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-[7px] font-black tracking-widest text-secondary-cyan uppercase">NOTE_002</span>
+                            <span class="text-[7px] text-on-surface-variant opacity-30">// SQL Injection Basics</span>
+                        </div>
+                        <p class="text-[10px] text-on-surface-variant leading-relaxed opacity-70">
+                            The Appointment machine demonstrated how a single unparameterized SQL query can collapse an entire authentication system. A payload like <span class="text-primary-neon font-mono">admin'--</span> is still surprisingly effective on legacy applications.
+                        </p>
+                    </div>
+
+                    <!-- Placeholder Note -->
+                    <div class="bg-surface-inset border border-dashed border-white/10 p-6 opacity-30">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-[7px] font-black tracking-widest uppercase">NOTE_003</span>
+                            <span class="text-[7px] text-on-surface-variant opacity-30">// PENDING_ENTRY</span>
+                        </div>
+                        <p class="text-[10px] text-on-surface-variant leading-relaxed">
+                            More field notes will be logged here as discoveries are made in active labs and real-world engagements.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
         </main>
 
         <!-- FOOTER -->
