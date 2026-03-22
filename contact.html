@@ -43,11 +43,14 @@
             });
 
             // Active Link Highlight
-            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            let currentPath = window.location.pathname.split('/').pop();
+            if (currentPath === '' || currentPath === 'index.html') currentPath = '/';
+            else currentPath = '/' + currentPath.replace('.html', '');
+            
             const navLinks = document.querySelectorAll('nav a, aside a');
             navLinks.forEach(link => {
                 const href = link.getAttribute('href');
-                if (href === currentPath) {
+                if (href === currentPath || href === currentPath + '.html') {
                     link.classList.add('text-primary-neon');
                     link.classList.add('active-nav-link');
                     link.classList.remove('text-on-surface-variant');
@@ -70,10 +73,10 @@
             <div class="flex items-center gap-4">
                 <span class="text-primary-neon font-bold tracking-widest sidebar-toggle hover:glow-primary transition-all">[newton@portfolio ~]$</span>
                 <nav class="hidden md:flex gap-8">
-                    <a href="index.html" class="text-on-surface-variant font-bold tracking-tight text-sm uppercase hover:opacity-80 stepped-transition">HOME</a>
-                    <a href="projects.html" class="text-on-surface-variant tracking-tight text-sm uppercase hover:text-primary-neon stepped-transition">PROJECTS</a>
-                    <a href="skills.html" class="text-on-surface-variant tracking-tight text-sm uppercase hover:text-primary-neon stepped-transition">SKILLS</a>
-                    <a href="contact.html" class="text-on-surface-variant tracking-tight text-sm uppercase hover:text-primary-neon stepped-transition">CONTACT</a>
+                    <a href="/" class="text-on-surface-variant font-bold tracking-tight text-sm uppercase hover:opacity-80 stepped-transition">HOME</a>
+                    <a href="/projects" class="text-on-surface-variant tracking-tight text-sm uppercase hover:text-primary-neon stepped-transition">PROJECTS</a>
+                    <a href="/skills" class="text-on-surface-variant tracking-tight text-sm uppercase hover:text-primary-neon stepped-transition">SKILLS</a>
+                    <a href="/contact" class="text-on-surface-variant tracking-tight text-sm uppercase hover:text-primary-neon stepped-transition">CONTACT</a>
                 </nav>
             </div>
             <div class="flex items-center gap-4 text-xs">
@@ -95,55 +98,55 @@
             <nav class="flex-1">
                 <ul class="space-y-1">
                     <li>
-                        <a href="index.html" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
+                        <a href="/" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
                             <span class="material-symbols-outlined text-xl">home</span>
                             <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">HOME</span>
                         </a>
                     </li>
                     <li>
-                        <a href="projects.html" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
+                        <a href="/projects" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
                             <span class="material-symbols-outlined text-xl">grid_view</span>
                             <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">PROJECTS</span>
                         </a>
                     </li>
                     <li>
-                        <a href="skills.html" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
+                        <a href="/skills" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
                             <span class="material-symbols-outlined text-xl">psychology</span>
                             <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">SKILLS</span>
                         </a>
                     </li>
                     <li>
-                        <a href="contact.html" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
+                        <a href="/contact" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
                             <span class="material-symbols-outlined text-xl">alternate_email</span>
                             <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">CONTACT</span>
                         </a>
                     </li>
                     <li>
-                        <a href="photos.html" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
+                        <a href="/photos" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
                             <span class="material-symbols-outlined text-xl">photo_library</span>
                             <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">PHOTOS</span>
                         </a>
                     </li>
                     <li>
-                        <a href="activity.html" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-tertiary-amber hover:bg-surface-raised stepped-transition group">
+                        <a href="/activity" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-tertiary-amber hover:bg-surface-raised stepped-transition group">
                             <span class="material-symbols-outlined text-xl">history</span>
                             <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">ACTIVITY LOG</span>
                         </a>
                         <!-- Sub-icons for Activity Log -->
                         <ul class="ml-12 mt-1 space-y-2 hidden md:block opacity-60">
                             <li>
-                                <a href="play.html" class="flex items-center gap-3 text-[9px] font-bold tracking-widest hover:text-primary-neon stepped-transition">
+                                <a href="/play" class="flex items-center gap-3 text-[9px] font-bold tracking-widest hover:text-primary-neon stepped-transition">
                                     <span class="material-symbols-outlined text-xs">videogame_asset</span> GAME
                                 </a>
                             </li>
 
                             <li>
-                                <a href="books.html" class="flex items-center gap-3 text-[9px] font-bold tracking-widest hover:text-primary-neon stepped-transition">
+                                <a href="/books" class="flex items-center gap-3 text-[9px] font-bold tracking-widest hover:text-primary-neon stepped-transition">
                                     <span class="material-symbols-outlined text-xs">library_books</span> BOOKS
                                 </a>
                             </li>
                             <li>
-                                <a href="research.html" class="flex items-center gap-3 text-[9px] font-bold tracking-widest hover:text-primary-neon stepped-transition">
+                                <a href="/research" class="flex items-center gap-3 text-[9px] font-bold tracking-widest hover:text-primary-neon stepped-transition">
                                     <span class="material-symbols-outlined text-xs">description</span> RESEARCH_PAPERS
                                 </a>
                             </li>
