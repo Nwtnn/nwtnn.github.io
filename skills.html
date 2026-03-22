@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEWTON_TIWARI // SKILLS_LOG</title>
+    <meta name="description" content="Newton Tiwari - Skills and Experience. Professional history, technical expertise, and career documentation.">
+    <meta name="keywords" content="Newton Tiwari, Skills, CV, Resume, Experience, Unity, Cyber Security">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'surface': '#131313',
+                        'surface-inset': '#0e0e0e',
+                        'surface-raised': '#1c1b1b',
+                        'surface-high': '#2a2a2a',
+                        'primary-neon': '#00ff41',
+                        'secondary-cyan': '#9cf0ff',
+                        'tertiary-amber': '#ffba38',
+                    }
+                }
+            }
+        }
+
+        // Scroll Reveal logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            reveals.forEach(reveal => {
+                reveal.classList.add('reveal');
+                observer.observe(reveal);
+            });
+
+            // Active Link Highlight
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('nav a, aside a');
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentPath) {
+                    link.classList.add('text-primary-neon');
+                    link.classList.add('active-nav-link');
+                    link.classList.remove('text-on-surface-variant');
+                }
+            });
+        });
+    </script>
+    <script src="system.js" defer></script>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-neon selection:text-black">
+    
+    <!-- CRT SCANLINE OVERLAY -->
+    <div class="scanline-overlay"></div>
+
+    <!-- MAIN WRAPPER FOR FLICKER -->
+    <div class="crt-flicker min-h-screen flex flex-col">
+        
+        <!-- HEADER / NAVIGATION -->
+        <header id="main-header" class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-sm border-b border-white/5 px-6 py-3 flex justify-between items-center transition-all duration-300">
+            <div class="flex items-center gap-4">
+                <span class="text-primary-neon font-bold tracking-widest sidebar-toggle hover:glow-primary transition-all">[newton@portfolio ~]$</span>
+                <nav class="hidden md:flex gap-8">
+                    <a href="index.html" class="text-on-surface-variant font-bold tracking-tight text-sm uppercase hover:opacity-80 stepped-transition">HOME</a>
+                    <a href="projects.html" class="text-on-surface-variant tracking-tight text-sm uppercase hover:text-primary-neon stepped-transition">PROJECTS</a>
+                    <a href="skills.html" class="text-on-surface-variant tracking-tight text-sm uppercase hover:text-primary-neon stepped-transition">SKILLS</a>
+                    <a href="contact.html" class="text-on-surface-variant tracking-tight text-sm uppercase hover:text-primary-neon stepped-transition">CONTACT</a>
+                </nav>
+            </div>
+            <div class="flex items-center gap-4 text-xs">
+                <div class="flex items-center gap-2">
+                    <div class="w-2 h-2 bg-primary-neon shadow-[0_0_8px_#00ff41] animate-pulse"></div>
+                    <span class="text-primary-neon opacity-70">SYSTEM_ACTIVE</span>
+                </div>
+                <span class="text-on-surface-variant opacity-50">V2.1.0</span>
+            </div>
+        </header>
+
+        <!-- SIDEBAR (FOR DESKTOP) -->
+        <aside id="main-sidebar" class="fixed left-0 top-0 h-full w-20 md:w-64 bg-surface-inset border-r border-white/5 pt-20 flex flex-col z-40 transition-all duration-300">
+            <div class="px-6 mb-8 hidden md:block">
+                <div class="text-primary-neon font-black text-lg">NEWTON_TIWARI</div>
+                <div class="text-on-surface-variant opacity-70 text-[10px] uppercase">VER_2.1.0</div>
+            </div>
+            
+            <nav class="flex-1">
+                <ul class="space-y-1">
+                    <li>
+                        <a href="index.html" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
+                            <span class="material-symbols-outlined text-xl">home</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">HOME</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="projects.html" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
+                            <span class="material-symbols-outlined text-xl">grid_view</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">PROJECTS</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="skills.html" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
+                            <span class="material-symbols-outlined text-xl">psychology</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">SKILLS</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.html" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
+                            <span class="material-symbols-outlined text-xl">alternate_email</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">CONTACT</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="photos.html" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
+                            <span class="material-symbols-outlined text-xl">photo_library</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">PHOTOS</span>
+                        </a>
+                    </li>
+                    <!-- ACTIVITY LOG WITH SUB-ICONS -->
+                    <li>
+                        <a href="activity.html" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-tertiary-amber hover:bg-surface-raised stepped-transition group">
+                            <span class="material-symbols-outlined text-xl">history</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">ACTIVITY LOG</span>
+                        </a>
+                        <!-- Sub-icons for Activity Log -->
+                        <ul class="ml-12 mt-1 space-y-2 hidden md:block opacity-60">
+                            <li>
+                                <a href="play.html" class="flex items-center gap-3 text-[9px] font-bold tracking-widest hover:text-primary-neon stepped-transition">
+                                    <span class="material-symbols-outlined text-xs">videogame_asset</span> GAME
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="books.html" class="flex items-center gap-3 text-[9px] font-bold tracking-widest hover:text-primary-neon stepped-transition">
+                                    <span class="material-symbols-outlined text-xs">library_books</span> BOOKS
+                                </a>
+                            </li>
+                            <li>
+                                <a href="research.html" class="flex items-center gap-3 text-[9px] font-bold tracking-widest hover:text-primary-neon stepped-transition">
+                                    <span class="material-symbols-outlined text-xs">description</span> RESEARCH_PAPERS
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="px-6 py-8 border-t border-white/5">
+                <a href="#" class="flex items-center gap-4 text-tertiary-amber hover:opacity-70 stepped-transition group shutdown-trigger">
+                    <span class="material-symbols-outlined text-xl">power_settings_new</span>
+                    <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">SYS_OFF</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT AREA -->
+        <main id="main-content" class="ml-16 md:ml-20 pt-16 flex-1 relative overflow-hidden transition-all duration-300">
+            <!-- DECORATIVE GRID -->
+            <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#00ff41 1px, transparent 1px); background-size: 40px 40px;"></div>
+
+
+
+            <!-- EXPERIENCE SECTION: LOG_HISTORY -->
+            <section id="experience" class="py-24 px-8 md:px-16 max-w-6xl mx-auto relative z-10">
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold tracking-tighter uppercase mb-2">&gt; LOG_HISTORY</h2>
+                    <div class="h-0.5 w-24 bg-primary-neon/30"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- ENTRY 01: CYBERSEC -->
+                    <div class="bg-surface-raised p-6 border-l-4 border-primary-neon group hover:bg-surface-high transition-all">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-[10px] text-primary-neon tracking-widest font-bold uppercase">ENTRY_01 // CYBERSEC</span>
+                            <span class="text-[10px] text-on-surface-variant opacity-50 uppercase">Jul 2024 — Jul 2025</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-4 uppercase">Deerwalk Developers Community · Member</h3>
+                        <p class="text-on-surface-variant text-[11px] leading-relaxed mb-6">
+                            Focused on Cyber Security initiatives. Collaborated with team members to achieve target results and conducted technical workshops.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[9px] px-2 py-0.5 bg-surface-inset border border-white/5 text-primary-neon">CYBER_SECURITY</span>
+                            <span class="text-[9px] px-2 py-0.5 bg-surface-inset border border-white/5 text-primary-neon">WORKSHOPS</span>
+                            <span class="text-[9px] px-2 py-0.5 bg-surface-inset border border-white/5 text-primary-neon">COLLABORATION</span>
+                        </div>
+                    </div>
+
+                    <!-- ENTRY 02: DEERHOLD -->
+                    <div class="bg-surface-raised p-6 border-l-4 border-secondary-cyan group hover:bg-surface-high transition-all">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-[10px] text-secondary-cyan tracking-widest font-bold uppercase">ENTRY_02 // DEERHOLD</span>
+                            <span class="text-[10px] text-on-surface-variant opacity-50 uppercase">Apr 2023 — Sept 2023</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-4 uppercase">Deerhold Ltd. · Intern</h3>
+                        <p class="text-on-surface-variant text-[11px] leading-relaxed mb-6">
+                            Student Internship focused on Python automation, Git BASH workflows, and data integrity. Member of the Deerwalk Developers Community.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[9px] px-2 py-0.5 bg-surface-inset border border-white/5 text-secondary-cyan">PYTHON</span>
+                            <span class="text-[9px] px-2 py-0.5 bg-surface-inset border border-white/5 text-secondary-cyan">GIT_BASH</span>
+                            <span class="text-[9px] px-2 py-0.5 bg-surface-inset border border-white/5 text-secondary-cyan">C / C++</span>
+                        </div>
+                    </div>
+
+                    <!-- ENTRY 03: HAMRO PATRO -->
+                    <div class="bg-surface-raised p-6 border-l-4 border-tertiary-amber group hover:bg-surface-high transition-all">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-[10px] text-tertiary-amber tracking-widest font-bold uppercase">ENTRY_03 // HAMRO_PATRO</span>
+                            <span class="text-[10px] text-on-surface-variant opacity-50 uppercase">Feb 2023 — Mar 2023</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-4 uppercase">Hamro Patro · Intern</h3>
+                        <p class="text-on-surface-variant text-[11px] leading-relaxed mb-6">
+                            Gained early industry exposure through a specialized internship, contributing to technical workflows and platform analysis.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[9px] px-2 py-0.5 bg-surface-inset border border-white/5 text-tertiary-amber">ANALYSIS</span>
+                            <span class="text-[9px] px-2 py-0.5 bg-surface-inset border border-white/5 text-tertiary-amber">SEC_AUDIT</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- CURRICULUM VITAE SECTION: SYSTEM_DOC -->
+            <section id="cv" class="py-24 px-8 md:px-16 max-w-6xl mx-auto relative z-10">
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold tracking-tighter uppercase mb-2">&gt; CURRICULUM_VITAE</h2>
+                    <div class="h-0.5 w-24 bg-primary-neon/30"></div>
+                </div>
+
+                <div class="terminal-window max-w-4xl mx-auto overflow-hidden group">
+                    <div class="terminal-header">
+                        <div class="flex items-center">
+                            <span class="material-symbols-outlined text-sm opacity-50 mr-2">contact_page</span>
+                            <span class="text-[10px] tracking-widest opacity-50 uppercase">FILE_VIEWER: CV.HTML</span>
+                        </div>
+                        <div class="flex gap-2">
+                             <a href="cv.html" target="_blank" class="text-[9px] font-bold tracking-widest text-primary-neon hover:underline">OPEN_DOCUMENT</a>
+                             <span class="text-[10px] opacity-30">READ_ONLY</span>
+                        </div>
+                    </div>
+                    <div class="p-2 bg-white/5 relative group-hover:bg-white/10 transition-colors h-[800px]">
+                        <iframe src="cv.html" class="w-full h-full border border-white/10 opacity-90 group-hover:opacity-100 transition-opacity bg-white"></iframe>
+                        <div class="absolute inset-0 pointer-events-none border-2 border-primary-neon/0 group-hover:border-primary-neon/10 transition-all"></div>
+                        <div class="absolute bottom-6 right-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <a href="cv.html" target="_blank" class="inline-block px-6 py-2 bg-primary-neon text-surface text-[10px] font-black tracking-widest uppercase hover:bg-white transition-all shadow-[0_0_15px_#00ff41/50]">OPEN_FULL_SCREEN</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SKILLS SECTION: SUBSYSTEMS -->
+            <section id="skills" class="py-24 px-8 md:px-16 max-w-6xl mx-auto relative z-10">
+                <div class="mb-12 flex justify-between items-end">
+                    <div>
+                        <h2 class="text-3xl font-bold tracking-tighter uppercase mb-2">&gt; SUBSYSTEMS</h2>
+                        <div class="h-0.5 w-24 bg-primary-neon/30"></div>
+                    </div>
+                    <div class="text-[10px] font-mono opacity-40">RESISTANCE_IS_FUTILE</div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <!-- GAME ENGINE STACK -->
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <span class="material-symbols-outlined text-primary-neon">sports_esports</span>
+                            <h3 class="text-xl font-bold uppercase tracking-tight">Game_Engine</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="space-y-2">
+                                <div class="flex justify-between text-[10px] font-bold tracking-widest uppercase">
+                                    <span>Unity / C#</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="h-1 w-full bg-surface-inset border border-white/5">
+                                    <div class="h-full bg-primary-neon shadow-[0_0_8px_#00ff41]" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex justify-between text-[10px] font-bold tracking-widest uppercase">
+                                    <span>FPS Mechanics</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="h-1 w-full bg-surface-inset border border-white/5">
+                                    <div class="h-full bg-primary-neon/60" style="width: 90%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECURITY STACK -->
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <span class="material-symbols-outlined text-tertiary-amber">security</span>
+                            <h3 class="text-xl font-bold uppercase tracking-tight">Sec_Protocols</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="space-y-2">
+                                <div class="flex justify-between text-[10px] font-bold tracking-widest uppercase">
+                                    <span>Malware Analysis</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="h-1 w-full bg-surface-inset border border-white/5">
+                                    <div class="h-full bg-tertiary-amber shadow-[0_0_8px_#ffba38]" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex justify-between text-[10px] font-bold tracking-widest uppercase">
+                                    <span>Network Security</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="h-1 w-full bg-surface-inset border border-white/5">
+                                    <div class="h-full bg-tertiary-amber/60" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CORE DEV STACK -->
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <span class="material-symbols-outlined text-secondary-cyan">terminal</span>
+                            <h3 class="text-xl font-bold uppercase tracking-tight">Core_Dev</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="space-y-2">
+                                <div class="flex justify-between text-[10px] font-bold tracking-widest uppercase">
+                                    <span>Python / Automation</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="h-1 w-full bg-surface-inset border border-white/5">
+                                    <div class="h-full bg-secondary-cyan shadow-[0_0_8px_#9cf0ff]" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex justify-between text-[10px] font-bold tracking-widest uppercase">
+                                    <span>TypeScript / C++</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="h-1 w-full bg-surface-inset border border-white/5">
+                                    <div class="h-full bg-secondary-cyan/60" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer id="main-footer" class="ml-16 md:ml-64 py-4 px-8 border-t border-white/5 flex justify-between items-center text-[10px] tracking-widest text-on-surface-variant/50 transition-all duration-300">
+            <div>© 2026 NEWTON_TIWARI</div>
+            <div class="flex gap-6">
+                <a href="https://github.com/Nwtnn" target="_blank" class="hover:text-primary-neon stepped-transition">GITHUB</a>
+                <a href="https://www.linkedin.com/in/newton-tiwari-7078a3263/" target="_blank" class="hover:text-primary-neon stepped-transition">LINKEDIN</a>
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEWTON_TIWARI // TERMINAL_HOME</title>
+    <meta name="description" content="Newton Tiwari - Portfolio. Game Developer and Cyber Security Enthusiast. Explore Unity projects, security audits, and more.">
+    <meta name="keywords" content="Newton Tiwari, Game Development, Unity, C#, Cyber Security, Portfolio, Deerhold, Hamro Patro">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'surface': '#131313',
+                        'surface-inset': '#0e0e0e',
+                        'surface-raised': '#1c1b1b',
+                        'surface-high': '#2a2a2a',
+                        'primary-neon': '#00ff41',
+                        'secondary-cyan': '#9cf0ff',
+                        'tertiary-amber': '#ffba38',
+                    }
+                }
+            }
+        }
+
+        // Scroll Reveal logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            reveals.forEach(reveal => {
+                reveal.classList.add('reveal');
+                observer.observe(reveal);
+            });
+        });
+    </script>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-neon selection:text-black">
+    
+    <!-- CRT SCANLINE OVERLAY -->
+    <div class="scanline-overlay"></div>
+
+    <!-- MAIN WRAPPER FOR FLICKER -->
+    <div class="crt-flicker min-h-screen flex flex-col">
+        
+        <!-- HEADER / NAVIGATION -->
+        <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-sm border-b border-white/5 px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <span class="text-primary-neon font-bold tracking-widest">[newton@portfolio ~]$</span>
+                <nav class="hidden md:flex gap-8">
+                    <a href="#home" class="text-primary-neon font-bold tracking-tight text-sm uppercase hover:opacity-80 stepped-transition">HOME</a>
+                    <a href="#projects" class="text-on-surface-variant tracking-tight text-sm uppercase hover:text-primary-neon stepped-transition">PROJECTS</a>
+                    <a href="#skills" class="text-on-surface-variant tracking-tight text-sm uppercase hover:text-primary-neon stepped-transition">SKILLS</a>
+                    <a href="#contact" class="text-on-surface-variant tracking-tight text-sm uppercase hover:text-primary-neon stepped-transition">CONTACT</a>
+                </nav>
+            </div>
+            <div class="flex items-center gap-4 text-xs">
+                <div class="flex items-center gap-2">
+                    <div class="w-2 h-2 bg-primary-neon shadow-[0_0_8px_#00ff41] animate-pulse"></div>
+                    <span class="text-primary-neon opacity-70">SYSTEM_ACTIVE</span>
+                </div>
+                <span class="text-on-surface-variant opacity-50">V2.1.0</span>
+            </div>
+        </header>
+
+        <!-- SIDEBAR (FOR DESKTOP) -->
+        <aside class="fixed left-0 top-0 h-full w-20 md:w-64 bg-surface-inset border-r border-white/5 pt-20 flex flex-col z-40">
+            <div class="px-6 mb-8 hidden md:block">
+                <div class="text-primary-neon font-black text-lg">NEWTON_TIWARI</div>
+                <div class="text-on-surface-variant opacity-70 text-[10px] uppercase">VER_2.1.0</div>
+            </div>
+            
+            <nav class="flex-1">
+                <ul class="space-y-1">
+                    <li>
+                        <a href="#home" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
+                            <span class="material-symbols-outlined text-xl">home</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">HOME</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#projects" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
+                            <span class="material-symbols-outlined text-xl">grid_view</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">PROJECTS</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#skills" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
+                            <span class="material-symbols-outlined text-xl">psychology</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">SKILLS</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
+                            <span class="material-symbols-outlined text-xl">alternate_email</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">CONTACT</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#photos" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
+                            <span class="material-symbols-outlined text-xl">photo_library</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">PHOTOS</span>
+                        </a>
+                    </li>
+                    <!-- ACTIVITY LOG WITH SUB-ICONS -->
+                    <li>
+                        <a href="#hobbies" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-tertiary-amber hover:bg-surface-raised stepped-transition group">
+                            <span class="material-symbols-outlined text-xl">history</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">ACTIVITY LOG</span>
+                        </a>
+                        <ul class="ml-12 mt-1 space-y-2 hidden md:block opacity-60">
+                            <li>
+                                <a href="#hobbies-play" class="flex items-center gap-3 text-[9px] font-bold tracking-widest hover:text-primary-neon stepped-transition">
+                                    <span class="material-symbols-outlined text-xs">videogame_asset</span> PLAY
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#hobbies-watch" class="flex items-center gap-3 text-[9px] font-bold tracking-widest hover:text-primary-neon stepped-transition">
+                                    <span class="material-symbols-outlined text-xs">visibility</span> WATCH
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#hobbies-read" class="flex items-center gap-3 text-[9px] font-bold tracking-widest hover:text-primary-neon stepped-transition">
+                                    <span class="material-symbols-outlined text-xs">menu_book</span> READ
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="px-6 py-8 border-t border-white/5">
+                <a href="#" class="flex items-center gap-4 text-tertiary-amber hover:opacity-70 stepped-transition group">
+                    <span class="material-symbols-outlined text-xl">power_settings_new</span>
+                    <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">SYS_OFF</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="ml-16 md:ml-20 pt-16 flex-1 relative overflow-hidden">
+            <!-- DECORATIVE GRID -->
+            <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#00ff41 1px, transparent 1px); background-size: 40px 40px;"></div>
+
+            <!-- HERO SECTION -->
+            <section id="home" class="min-h-[80vh] flex flex-col justify-center px-8 md:px-16 max-w-6xl mx-auto relative z-10">
+                <div class="mb-4 flex items-center gap-3">
+                    <div class="h-0.5 w-12 bg-primary-neon"></div>
+                    <span class="text-primary-neon text-[10px] tracking-[0.4em] uppercase">Identity_Handshake_Complete</span>
+                </div>
+                <h1 class="text-5xl md:text-8xl font-bold tracking-tighter uppercase mb-2">
+                    SYS_ADMIN: <br>
+                    <span class="text-primary-neon glow-primary">NEWTON TIWARI</span>
+                </h1>
+                <p class="text-on-surface-variant max-w-2xl text-lg md:text-xl border-l-2 border-primary-neon/30 pl-6 py-2 mb-12">
+                    I break systems to understand them, trace what shouldn’t be seen, and dissect what wasn’t meant to be understood. Most of my time lives somewhere between testing boundaries and unraveling intent.
+                    <br><br>
+                    <span class="text-secondary-cyan">On the other side, I build games for fun..</span>
+                </p>
+
+                <!-- TERMINAL MODULE -->
+                <div class="terminal-window max-w-3xl">
+                    <div class="terminal-header">
+                        <div class="flex items-center">
+                            <div class="dot bg-red-900/40"></div>
+                            <div class="dot bg-amber-900/40"></div>
+                            <div class="dot bg-green-900/40"></div>
+                            <span class="text-[10px] tracking-widest opacity-50 ml-2 uppercase">tty1 — bios_init</span>
+                        </div>
+                        <span class="text-[10px] opacity-30">80x24</span>
+                    </div>
+                    <div class="p-6 font-mono text-sm space-y-2 text-on-surface-variant">
+                        <p><span class="text-primary-neon opacity-50">[0.000000]</span> Loading profile: <span class="text-white">NEWTON_TIWARI</span></p>
+                        <p><span class="text-primary-neon opacity-50">[0.045102]</span> Initializing Game Engine... <span class="text-primary-neon">OK</span></p>
+                        <p><span class="text-primary-neon opacity-50">[0.089421]</span> Auditing Security Protocols... <span class="text-tertiary-amber">WARNED</span></p>
+                        <p><span class="text-primary-neon opacity-50">[0.124531]</span> Establishing uplink to <span class="text-secondary-cyan">Hamro Patro</span>, <span class="text-secondary-cyan">Deerhold</span></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EXPERIENCE SECTION: LOG_HISTORY -->
+            <section id="experience" class="py-24 px-8 md:px-16 max-w-6xl mx-auto relative z-10">
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold tracking-tighter uppercase mb-2">&gt; LOG_HISTORY</h2>
+                    <div class="h-0.5 w-24 bg-primary-neon/30"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- ENTRY 01 -->
+                    <div class="bg-surface-raised p-8 border-l-4 border-primary-neon group hover:bg-surface-high transition-all">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-[10px] text-primary-neon tracking-widest font-bold uppercase">ENTRY_01 // GAME_DEV</span>
+                            <span class="text-[10px] text-on-surface-variant opacity-50 uppercase">Nov 2023 — Present</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 uppercase">Project · Game Development</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed mb-6">
+                            Creating immersive experiences using Unity. Designing intricate levels, crafting narratives, and fine-tuning gameplay mechanics.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[10px] px-2 py-1 bg-surface-inset border border-white/5 text-primary-neon">UNITY</span>
+                            <span class="text-[10px] px-2 py-1 bg-surface-inset border border-white/5 text-primary-neon">C#</span>
+                            <span class="text-[10px] px-2 py-1 bg-surface-inset border border-white/5 text-primary-neon">BLENDER</span>
+                            <span class="text-[10px] px-2 py-1 bg-surface-inset border border-white/5 text-primary-neon">PHOTOSHOP</span>
+                        </div>
+                    </div>
+
+                    <!-- ENTRY 02 -->
+                    <div class="bg-surface-raised p-8 border-l-4 border-secondary-cyan group hover:bg-surface-high transition-all">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-[10px] text-secondary-cyan tracking-widest font-bold uppercase">ENTRY_02 // INTERN</span>
+                            <span class="text-[10px] text-on-surface-variant opacity-50 uppercase">April 2023 — Sept 2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 uppercase">Deerhold.ltd</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed mb-6">
+                            Focusing on web scraping, data automation, and SQL database management. Optimized data pipelines for high-volume processing.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[10px] px-2 py-1 bg-surface-inset border border-white/5 text-secondary-cyan">PYTHON</span>
+                            <span class="text-[10px] px-2 py-1 bg-surface-inset border border-white/5 text-secondary-cyan">BEAUTIFULSOUP</span>
+                            <span class="text-[10px] px-2 py-1 bg-surface-inset border border-white/5 text-secondary-cyan">SQL</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PROJECTS SECTION: REPOSITORY -->
+            <section id="projects" class="py-24 px-8 md:px-16 max-w-6xl mx-auto relative z-10">
+                <div class="mb-12 flex justify-between items-end">
+                    <div>
+                        <h2 class="text-3xl font-bold tracking-tighter uppercase mb-2">&gt; REPOSITORY</h2>
+                        <div class="h-0.5 w-24 bg-primary-neon/30"></div>
+                    </div>
+                    <div class="hidden md:flex gap-4 text-[10px] font-bold tracking-widest">
+                        <span class="text-primary-neon cursor-pointer border-b border-primary-neon pb-1">ALL_FILES</span>
+                        <span class="text-on-surface-variant cursor-pointer hover:text-primary-neon">GAME_OBJECTS</span>
+                        <span class="text-on-surface-variant cursor-pointer hover:text-primary-neon">SECURITY_PROTOCOLS</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- PROJECT 1 -->
+                    <div class="bg-surface-inset border border-white/5 p-6 relative group overflow-hidden">
+                        <div class="absolute top-0 right-0 p-3 opacity-20 group-hover:opacity-100 group-hover:text-primary-neon transition-all">
+                            <span class="material-symbols-outlined">captive_portal</span>
+                        </div>
+                        <div class="text-[9px] text-primary-neon tracking-[0.3em] mb-4 uppercase">ID_048: UNITY_EXP</div>
+                        <h4 class="text-lg font-bold mb-2 uppercase">Project Captivate</h4>
+                        <p class="text-xs text-on-surface-variant mb-6 line-clamp-3">
+                            A first-person exploration game focused on atmospheric storytelling.
+                        </p>
+                        <a href="https://github.com/Nwtnn" target="_blank" class="text-[10px] font-bold text-primary-neon flex items-center gap-2 hover:opacity-70">
+                            VIEW_SOURCE <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </a>
+                    </div>
+
+                    <!-- PROJECT 2 -->
+                    <div class="bg-surface-inset border border-white/5 p-6 relative group overflow-hidden">
+                        <div class="absolute top-0 right-0 p-3 opacity-20 group-hover:opacity-100 group-hover:text-tertiary-amber transition-all">
+                            <span class="material-symbols-outlined">shield_lock</span>
+                        </div>
+                        <div class="text-[9px] text-tertiary-amber tracking-[0.3em] mb-4 uppercase">ID_051: SEC_AUDIT</div>
+                        <h4 class="text-lg font-bold mb-2 uppercase">Network Sentinel</h4>
+                        <p class="text-xs text-on-surface-variant mb-6 line-clamp-3">
+                            A monitoring script designed for packet analysis and threat detection.
+                        </p>
+                        <a href="https://github.com/Nwtnn" target="_blank" class="text-[10px] font-bold text-tertiary-amber flex items-center gap-2 hover:opacity-70">
+                            READ_REPORT <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </a>
+                    </div>
+
+                    <!-- PROJECT 3 -->
+                    <div class="bg-surface-inset border border-white/5 p-6 relative group overflow-hidden">
+                        <div class="absolute top-0 right-0 p-3 opacity-20 group-hover:opacity-100 group-hover:text-secondary-cyan transition-all">
+                            <span class="material-symbols-outlined">data_object</span>
+                        </div>
+                        <div class="text-[9px] text-secondary-cyan tracking-[0.3em] mb-4 uppercase">ID_032: SCRAPE_BOT</div>
+                        <h4 class="text-lg font-bold mb-2 uppercase">Crawler V3</h4>
+                        <p class="text-xs text-on-surface-variant mb-6 line-clamp-3">
+                            High-speed web scraper built with Python for Deerhold analysis.
+                        </p>
+                        <a href="https://github.com/Nwtnn" target="_blank" class="text-[10px] font-bold text-secondary-cyan flex items-center gap-2 hover:opacity-70">
+                            EXECUTE <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SKILLS SECTION: SUBSYSTEMS -->
+            <section id="skills" class="py-24 px-8 md:px-16 max-w-6xl mx-auto relative z-10">
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold tracking-tighter uppercase mb-2">&gt; SUBSYSTEMS</h2>
+                    <div class="h-0.5 w-24 bg-primary-neon/30"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- GAME DEV STACK -->
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <span class="material-symbols-outlined text-primary-neon">sports_esports</span>
+                            <h3 class="text-xl font-bold uppercase tracking-tight">Game_Engine_Core</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <!-- UNITY -->
+                            <div class="space-y-2">
+                                <div class="flex justify-between text-[10px] font-bold tracking-widest uppercase">
+                                    <span>Unity / C#</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="h-1 w-full bg-surface-raised">
+                                    <div class="h-full bg-primary-neon shadow-[0_0_8px_#14ff00d1]" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <!-- BLENDER -->
+                            <div class="space-y-2">
+                                <div class="flex justify-between text-[10px] font-bold tracking-widest uppercase">
+                                    <span>Blender / 3D Modeling</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="h-1 w-full bg-surface-raised">
+                                    <div class="h-full bg-primary-neon/60" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECURITY STACK -->
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <span class="material-symbols-outlined text-tertiary-amber">security</span>
+                            <h3 class="text-xl font-bold uppercase tracking-tight">Security_Protocols</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <!-- NETWORKING -->
+                            <div class="space-y-2">
+                                <div class="flex justify-between text-[10px] font-bold tracking-widest uppercase">
+                                    <span>Network Security / Pentesting</span>
+                                    <span>70%</span>
+                                </div>
+                                <div class="h-1 w-full bg-surface-raised">
+                                    <div class="h-full bg-tertiary-amber shadow-[0_0_8px_#ffba38a1]" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <!-- PYTHON -->
+                            <div class="space-y-2">
+                                <div class="flex justify-between text-[10px] font-bold tracking-widest uppercase">
+                                    <span>Python / Automation</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="h-1 w-full bg-surface-raised">
+                                    <div class="h-full bg-tertiary-amber/60" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PHOTO GALLERY SECTION: PHOTOS -->
+            <section id="photos" class="py-24 px-8 md:px-16 max-w-6xl mx-auto relative z-10">
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold tracking-tighter uppercase mb-2">&gt; PHOTO_GALLERY</h2>
+                    <div class="h-0.5 w-24 bg-primary-neon/30"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="aspect-square bg-surface-inset border border-white/5 overflow-hidden group">
+                        <div class="w-full h-full bg-surface-raised flex items-center justify-center text-[10px] opacity-20 uppercase font-bold group-hover:opacity-100 transition-opacity">IMG_DATA_01</div>
+                    </div>
+                    <div class="aspect-square bg-surface-inset border border-white/5 overflow-hidden group">
+                        <div class="w-full h-full bg-surface-raised flex items-center justify-center text-[10px] opacity-20 uppercase font-bold group-hover:opacity-100 transition-opacity">IMG_DATA_02</div>
+                    </div>
+                    <div class="aspect-square bg-surface-inset border border-white/5 overflow-hidden group">
+                        <div class="w-full h-full bg-surface-raised flex items-center justify-center text-[10px] opacity-20 uppercase font-bold group-hover:opacity-100 transition-opacity">IMG_DATA_03</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ACTIVITY LOG SECTION: HOBBIES -->
+            <section id="hobbies" class="py-24 px-8 md:px-16 max-w-6xl mx-auto relative z-10">
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold tracking-tighter uppercase mb-2">&gt; ACTIVITY_LOG</h2>
+                    <div class="h-0.5 w-24 bg-tertiary-amber/30"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- PLAY LOG -->
+                    <div id="hobbies-play" class="bg-surface-inset border border-white/5 p-6 space-y-4">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="material-symbols-outlined text-sm text-primary-neon">videogame_asset</span>
+                            <span class="text-[10px] font-bold tracking-widest uppercase">DIR/PLAY_LOG</span>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="border-l-2 border-primary-neon/20 pl-4">
+                                <span class="text-[9px] text-primary-neon font-bold uppercase block mb-1">ACTIVE_PROCESS</span>
+                                <p class="text-xs font-bold text-on-surface uppercase">Elden Ring</p>
+                            </div>
+                            <div class="border-l-2 border-white/5 pl-4">
+                                <span class="text-[9px] opacity-30 font-bold uppercase block mb-1">COMPLETED_CORE</span>
+                                <p class="text-xs text-on-surface-variant uppercase">Sekiro: Shadows Die Twice</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WATCH LOG -->
+                    <div id="hobbies-watch" class="bg-surface-inset border border-white/5 p-6 space-y-4">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="material-symbols-outlined text-sm text-primary-neon">visibility</span>
+                            <span class="text-[10px] font-bold tracking-widest uppercase">DIR/WATCH_LOG</span>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="border-l-2 border-primary-neon/20 pl-4">
+                                <span class="text-[9px] text-primary-neon font-bold uppercase block mb-1">CURRENT_STREAM</span>
+                                <p class="text-xs font-bold text-on-surface uppercase">Cyberpunk: Edgerunners</p>
+                            </div>
+                            <div class="border-l-2 border-white/5 pl-4">
+                                <span class="text-[9px] opacity-30 font-bold uppercase block mb-1">ARCHIVED_LOG</span>
+                                <p class="text-xs text-on-surface-variant uppercase">Blade Runner 2049</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- READ LOG -->
+                    <div id="hobbies-read" class="bg-surface-inset border border-white/5 p-6 space-y-4">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="material-symbols-outlined text-sm text-primary-neon">menu_book</span>
+                            <span class="text-[10px] font-bold tracking-widest uppercase">DIR/READ_LOG</span>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="border-l-2 border-primary-neon/20 pl-4">
+                                <span class="text-[9px] text-primary-neon font-bold uppercase block mb-1">MEMORY_BUFFER</span>
+                                <p class="text-xs font-bold text-on-surface uppercase">Neuromancer (William Gibson)</p>
+                            </div>
+                            <div class="border-l-2 border-white/5 pl-4">
+                                <span class="text-[9px] opacity-30 font-bold uppercase block mb-1">ARCHIVED_TEXT</span>
+                                <p class="text-xs text-on-surface-variant uppercase">Practical Reverse Engineering</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONTACT SECTION: ESTABLISH_CONNECTION -->
+            <section id="contact" class="py-24 px-8 md:px-16 max-w-6xl mx-auto relative z-10">
+                <div class="mb-12">
+                    <h2 class="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-4">&gt; ESTABLISH_CONNECTION</h2>
+                    <p class="text-[10px] md:text-xs text-on-surface-variant/70 tracking-widest max-w-2xl leading-relaxed uppercase font-bold">
+                        SECURE HANDSHAKE PROTOCOL INITIATED. ENTER PARAMETERS TO TRANSMIT DATA PACKETS TO LOCAL HOST. ALL TRAFFIC IS MONITORED VIA ENCRYPTED TUNNEL.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- MAIN TRANSMISSION FORM -->
+                    <div class="lg:col-span-2 bg-[#0a0a0a] border border-white/5 p-1 relative overflow-hidden">
+                        <div class="bg-surface-raised/30 px-4 py-2 border-b border-white/5 flex justify-between items-center mb-8">
+                            <span class="text-[9px] font-bold tracking-widest text-on-surface-variant">COMMS_LINK.SH</span>
+                            <div class="flex gap-1.5">
+                                <div class="w-1.5 h-1.5 bg-white/10"></div>
+                                <div class="w-1.5 h-1.5 bg-white/10"></div>
+                                <div class="w-1.5 h-1.5 bg-primary-neon/50"></div>
+                            </div>
+                        </div>
+
+                        <form class="p-6 md:p-8 space-y-12">
+                            <div class="space-y-4">
+                                <label class="block text-[10px] font-bold tracking-[0.2em] text-primary-neon opacity-70">--IDENTITY_MASK <span class="text-white/30">[REQUIRED]</span></label>
+                                <div class="flex items-center gap-4 text-primary-neon border-b border-white/5 pb-2">
+                                    <span class="text-lg opacity-50 font-mono">$</span>
+                                    <input type="text" placeholder="ENTER_NAME" class="bg-transparent border-none outline-none w-full text-sm md:text-base font-bold placeholder:text-white/10 uppercase focus:placeholder:opacity-0 transition-opacity">
+                                </div>
+                            </div>
+
+                            <div class="space-y-4">
+                                <label class="block text-[10px] font-bold tracking-[0.2em] text-primary-neon opacity-70">--RETURN_ADDRESS <span class="text-white/30">[REQUIRED]</span></label>
+                                <div class="flex items-center gap-4 text-primary-neon border-b border-white/5 pb-2">
+                                    <span class="text-lg opacity-50 font-mono">$</span>
+                                    <input type="email" placeholder="USER@DOMAIN.TLD" class="bg-transparent border-none outline-none w-full text-sm md:text-base font-bold placeholder:text-white/10 uppercase focus:placeholder:opacity-0 transition-opacity">
+                                </div>
+                            </div>
+
+                            <div class="space-y-4">
+                                <label class="block text-[10px] font-bold tracking-[0.2em] text-primary-neon opacity-70">--PAYLOAD_STRING <span class="text-white/30">[CONTENT]</span></label>
+                                <div class="flex items-start gap-4 text-primary-neon border border-white/5 p-4 bg-surface-inset/50">
+                                    <span class="text-lg opacity-50 font-mono mt-1">$</span>
+                                    <textarea placeholder="TYPE_MESSAGE_HERE..." rows="6" class="bg-transparent border-none outline-none w-full text-sm md:text-base font-bold placeholder:text-white/10 uppercase resize-none focus:placeholder:opacity-0 transition-all"></textarea>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="w-full md:w-auto px-12 py-4 bg-primary-neon text-surface font-black text-[10px] md:text-xs tracking-[0.3em] uppercase flex items-center justify-center gap-4 hover:bg-white stepped-transition glitch-hover">
+                                <span class="material-symbols-outlined text-sm">send</span>
+                                EXECUTE_TRANSMISSION
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- SIDEBAR CONFIG & DATA -->
+                    <div class="space-y-6">
+                        <!-- NET_CONFIG -->
+                        <div class="bg-surface-inset border border-white/5 p-6">
+                            <div class="flex items-center gap-3 mb-8">
+                                <span class="material-symbols-outlined text-sm text-secondary-cyan">settings_ethernet</span>
+                                <span class="text-[10px] font-bold tracking-widest text-secondary-cyan uppercase">NET_CONFIG</span>
+                            </div>
+                            <div class="space-y-6 uppercase font-bold">
+                                <div class="flex justify-between items-end">
+                                    <div>
+                                        <div class="text-[8px] text-on-surface-variant/50 mb-1">GITHUB_REMOTE</div>
+                                        <div class="text-xs text-on-surface">192.168.1.10</div>
+                                    </div>
+                                    <a href="https://github.com/Nwtnn" target="_blank" class="material-symbols-outlined text-sm opacity-30 hover:opacity-100 hover:text-primary-neon transition-all">open_in_new</a>
+                                </div>
+                                <div class="flex justify-between items-end">
+                                    <div>
+                                        <div class="text-[8px] text-on-surface-variant/50 mb-1">LINKEDIN_TUNNEL</div>
+                                        <div class="text-xs text-on-surface">172.16.0.42</div>
+                                    </div>
+                                    <a href="https://www.linkedin.com/in/newton-tiwari-7078a3263/" target="_blank" class="material-symbols-outlined text-sm opacity-30 hover:opacity-100 hover:text-primary-neon transition-all">open_in_new</a>
+                                </div>
+                                <div class="flex justify-between items-end">
+                                    <div>
+                                        <div class="text-[8px] text-on-surface-variant/50 mb-1">KEYBASE_CRYPTO</div>
+                                        <div class="text-xs text-on-surface">10.0.0.128</div>
+                                    </div>
+                                    <span class="material-symbols-outlined text-sm opacity-30">lock</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SYSTEM_ADVISORY -->
+                        <div class="bg-tertiary-amber/5 border-l-2 border-tertiary-amber p-6">
+                            <div class="flex items-center gap-3 mb-4 text-tertiary-amber">
+                                <span class="material-symbols-outlined text-sm">warning</span>
+                                <span class="text-[10px] font-bold tracking-widest uppercase">SYSTEM_ADVISORY</span>
+                            </div>
+                            <p class="text-[9px] text-tertiary-amber leading-relaxed tracking-widest uppercase font-bold">
+                                TRANSMISSION LATENCY IS CURRENTLY <span class="text-white">14MS</span>. ALL COMMUNICATIONS ARE LOGGED UNDER KINETIC_JOURNAL_V2. UNAUTHORIZED ACCESS TO THE ROOT CONSOLE IS STRICTLY PROHIBITED.
+                            </p>
+                        </div>
+
+                        <!-- COORDINATES -->
+                        <div class="bg-surface-inset border border-white/5 aspect-video relative overflow-hidden group">
+                           <div class="absolute inset-0 bg-white/5 opacity-20 group-hover:opacity-40 transition-opacity flex items-center justify-center">
+                               <span class="material-symbols-outlined text-4xl opacity-10">map</span>
+                           </div>
+                            <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
+                                <div class="text-[7px] text-secondary-cyan opacity-40 mb-1 tracking-[0.3em]">COORDINATES_LOCATED</div>
+                                <div class="text-[9px] font-black tracking-widest text-secondary-cyan uppercase">NORTH_DATA_CENTER_01</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="ml-16 md:ml-64 py-4 px-8 border-t border-white/5 flex justify-between items-center text-[10px] tracking-widest text-on-surface-variant/50 transition-all duration-300">
+            <div>© 2026 NEWTON_TIWARI // TIWARI_OS</div>
+            <div class="flex gap-6">
+                <a href="https://github.com/Nwtnn" target="_blank" class="hover:text-primary-neon stepped-transition">GITHUB</a>
+                <a href="https://www.linkedin.com/in/newton-tiwari-7078a3263/" target="_blank" class="hover:text-primary-neon stepped-transition">LINKEDIN</a>
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>

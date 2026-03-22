@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEWTON_TIWARI // ACTIVITY_LOG</title>
+    <meta name="description" content="Newton Tiwari - Activity Log. Tracking games, movies, and books.">
+    <meta name="keywords" content="Newton Tiwari, Activity Log, Hobbies, Gaming, Reading, Watching">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'surface': '#131313',
+                        'surface-inset': '#0e0e0e',
+                        'surface-raised': '#1c1b1b',
+                        'surface-high': '#2a2a2a',
+                        'primary-neon': '#00ff41',
+                        'secondary-cyan': '#9cf0ff',
+                        'tertiary-amber': '#ffba38',
+                    }
+                }
+            }
+        }
+
+        // Scroll Reveal logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            reveals.forEach(reveal => {
+                reveal.classList.add('reveal');
+                observer.observe(reveal);
+            });
+
+            // Active Link Highlight
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('nav a, aside a');
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentPath) {
+                    link.classList.add('text-primary-neon');
+                    link.classList.add('active-nav-link');
+                    link.classList.remove('text-on-surface-variant');
+                }
+            });
+        });
+    </script>
+    <script src="system.js" defer></script>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-neon selection:text-black">
+    
+    <!-- CRT SCANLINE OVERLAY -->
+    <div class="scanline-overlay"></div>
+
+    <!-- MAIN WRAPPER FOR FLICKER -->
+    <div class="crt-flicker min-h-screen flex flex-col">
+        
+        <!-- HEADER / NAVIGATION -->
+        <header id="main-header" class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-sm border-b border-white/5 px-6 py-3 flex justify-between items-center transition-all duration-300">
+            <div class="flex items-center gap-4">
+                <span class="text-primary-neon font-bold tracking-widest sidebar-toggle hover:glow-primary transition-all">[newton@portfolio ~]$</span>
+                <nav class="hidden md:flex gap-8">
+                    <a href="index.html" class="text-on-surface-variant font-bold tracking-tight text-sm uppercase hover:opacity-80 stepped-transition">HOME</a>
+                    <a href="projects.html" class="text-on-surface-variant tracking-tight text-sm uppercase hover:text-primary-neon stepped-transition">PROJECTS</a>
+                    <a href="skills.html" class="text-on-surface-variant tracking-tight text-sm uppercase hover:text-primary-neon stepped-transition">SKILLS</a>
+                    <a href="contact.html" class="text-on-surface-variant tracking-tight text-sm uppercase hover:text-primary-neon stepped-transition">CONTACT</a>
+                </nav>
+            </div>
+            <div class="flex items-center gap-4 text-xs">
+                <div class="flex items-center gap-2">
+                    <div class="w-2 h-2 bg-primary-neon shadow-[0_0_8px_#00ff41] animate-pulse"></div>
+                    <span class="text-primary-neon opacity-70">SYSTEM_ACTIVE</span>
+                </div>
+                <span class="text-on-surface-variant opacity-50">V2.1.0</span>
+            </div>
+        </header>
+
+        <!-- SIDEBAR (FOR DESKTOP) -->
+        <aside id="main-sidebar" class="fixed left-0 top-0 h-full w-20 md:w-64 bg-surface-inset border-r border-white/5 pt-20 flex flex-col z-40 transition-all duration-300">
+            <div class="px-6 mb-8 hidden md:block">
+                <div class="text-primary-neon font-black text-lg">NEWTON_TIWARI</div>
+                <div class="text-on-surface-variant opacity-70 text-[10px] uppercase">VER_2.1.0</div>
+            </div>
+            
+            <nav class="flex-1">
+                <ul class="space-y-1">
+                    <li>
+                        <a href="index.html" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
+                            <span class="material-symbols-outlined text-xl">home</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">HOME</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="projects.html" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
+                            <span class="material-symbols-outlined text-xl">grid_view</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">PROJECTS</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="skills.html" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
+                            <span class="material-symbols-outlined text-xl">psychology</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">SKILLS</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.html" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
+                            <span class="material-symbols-outlined text-xl">alternate_email</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">CONTACT</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="photos.html" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
+                            <span class="material-symbols-outlined text-xl">photo_library</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">PHOTOS</span>
+                        </a>
+                    </li>
+                    <!-- ACTIVITY LOG WITH SUB-ICONS -->
+                    <li>
+                        <a href="activity.html" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-tertiary-amber hover:bg-surface-raised stepped-transition group">
+                            <span class="material-symbols-outlined text-xl">history</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">ACTIVITY LOG</span>
+                        </a>
+                        <ul class="ml-12 mt-1 space-y-2 hidden md:block opacity-60">
+                            <li>
+                                <a href="play.html" class="flex items-center gap-3 text-[9px] font-bold tracking-widest hover:text-primary-neon stepped-transition">
+                                    <span class="material-symbols-outlined text-xs">videogame_asset</span> GAME
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="books.html" class="flex items-center gap-3 text-[9px] font-bold tracking-widest hover:text-primary-neon stepped-transition">
+                                    <span class="material-symbols-outlined text-xs">library_books</span> BOOKS
+                                </a>
+                            </li>
+                            <li>
+                                <a href="research.html" class="flex items-center gap-3 text-[9px] font-bold tracking-widest hover:text-primary-neon stepped-transition">
+                                    <span class="material-symbols-outlined text-xs">description</span> RESEARCH_PAPERS
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="px-6 py-8 border-t border-white/5">
+                <a href="#" class="flex items-center gap-4 text-tertiary-amber hover:opacity-70 stepped-transition group shutdown-trigger">
+                    <span class="material-symbols-outlined text-xl">power_settings_new</span>
+                    <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">SYS_OFF</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT AREA -->
+        <main id="main-content" class="ml-16 md:ml-20 pt-16 flex-1 relative overflow-hidden transition-all duration-300">
+            <!-- DECORATIVE GRID -->
+            <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#00ff41 1px, transparent 1px); background-size: 40px 40px;"></div>
+
+
+
+            <!-- ACTIVITY HUB SECTION -->
+            <section id="activity-hub" class="py-24 px-8 md:px-16 max-w-7xl mx-auto relative z-10">
+                
+                <!-- PART 1: PROFESSIONAL_PROCESSES -->
+                <div class="mb-24">
+                    <div class="mb-12">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="w-1.5 h-1.5 bg-primary-neon"></span>
+                            <h2 class="text-3xl font-bold tracking-tighter uppercase font-mono">&gt; PROFESSIONAL_PROCESSES</h2>
+                        </div>
+                        <div class="h-0.5 w-32 bg-primary-neon/30 mb-4"></div>
+                        <p class="text-[10px] text-on-surface-variant max-w-xl leading-relaxed uppercase tracking-widest opacity-60">
+                            Current technical focus, research cycles, and professional development logs. 
+                            Scanning for intent, testing boundaries, and unraveling complex systems.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- PROFESSIONAL ITEM 1 -->
+                        <div class="bg-surface-inset border border-white/5 p-6 hover:border-primary-neon transition-all group relative overflow-hidden">
+                            <div class="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-30 transition-opacity">
+                                <span class="material-symbols-outlined text-4xl">terminal</span>
+                            </div>
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="text-[10px] px-2 py-0.5 bg-primary-neon/10 text-primary-neon border border-primary-neon/20 font-bold">RESEARCH</span>
+                                <span class="text-[9px] text-on-surface-variant opacity-40 font-mono">STATUS: IN_PROGRESS</span>
+                            </div>
+                            <h3 class="text-sm font-bold tracking-widest uppercase mb-2">Kernel Exploitation Patterns</h3>
+                            <p class="text-[11px] text-on-surface-variant leading-relaxed mb-4">Analyzing modern mitigation bypass techniques and heap grooming strategies in Unix environments.</p>
+                            <div class="flex gap-4">
+                                <div class="h-1 flex-1 bg-white/5 overflow-hidden rounded-full">
+                                    <div class="h-full bg-primary-neon w-[65%] shadow-[0_0_10px_#00ff41]"></div>
+                                </div>
+                                <span class="text-[9px] font-bold text-primary-neon self-center">65%</span>
+                            </div>
+                        </div>
+
+                        <!-- PROFESSIONAL ITEM 2 -->
+                        <div class="bg-surface-inset border border-white/5 p-6 hover:border-primary-neon transition-all group relative overflow-hidden">
+                            <div class="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-30 transition-opacity">
+                                <span class="material-symbols-outlined text-4xl">sports_esports</span>
+                            </div>
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="text-[10px] px-2 py-0.5 bg-secondary-cyan/10 text-secondary-cyan border border-secondary-cyan/20 font-bold">GAME_DEV</span>
+                                <span class="text-[9px] text-on-surface-variant opacity-40 font-mono">STATUS: PROTOTYPING</span>
+                            </div>
+                            <h3 class="text-sm font-bold tracking-widest uppercase mb-2">Procedural Engine Core</h3>
+                            <p class="text-[11px] text-on-surface-variant leading-relaxed mb-4">Building a custom Voxel-based rendering pipeline for immersive environmental interactions.</p>
+                            <div class="flex gap-4">
+                                <div class="h-1 flex-1 bg-white/5 overflow-hidden rounded-full">
+                                    <div class="h-full bg-secondary-cyan w-[40%] shadow-[0_0_10px_#9cf0ff]"></div>
+                                </div>
+                                <span class="text-[9px] font-bold text-secondary-cyan self-center">40%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PART 2: HOBBY_LOGS -->
+                <div>
+                    <div class="mb-12">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="w-1.5 h-1.5 bg-tertiary-amber"></span>
+                            <h2 class="text-3xl font-bold tracking-tighter uppercase font-mono">&gt; HOBBY_LOGS</h2>
+                        </div>
+                        <div class="h-0.5 w-32 bg-tertiary-amber/30 mb-4"></div>
+                        <p class="text-[10px] text-on-surface-variant max-w-xl leading-relaxed uppercase tracking-widest opacity-60">
+                            Personal interests, recreational media, and analog/digital exploration. 
+                            Building worlds for fun and experiencing the intent of other creators.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- PLAY HUB -->
+                        <a href="play.html" class="bg-surface-inset border border-white/5 p-6 space-y-4 hover:border-tertiary-amber transition-colors group">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-sm text-tertiary-amber">videogame_asset</span>
+                                    <span class="text-[10px] font-bold tracking-widest uppercase">DIR/GAME_LOG</span>
+                                </div>
+                                <span class="material-symbols-outlined text-[10px] text-on-surface-variant group-hover:translate-x-1 transition-transform">arrow_forward_ios</span>
+                            </div>
+                            <p class="text-[11px] text-on-surface-variant uppercase group-hover:text-white transition-colors">Gaming progress and technical achievements.</p>
+                        </a>
+
+
+                        <!-- BOOKS HUB -->
+                        <a href="books.html" class="bg-surface-inset border border-white/5 p-6 space-y-4 hover:border-tertiary-amber transition-colors group">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-sm text-tertiary-amber">library_books</span>
+                                    <span class="text-[10px] font-bold tracking-widest uppercase">DIR/BOOKS_LOG</span>
+                                </div>
+                                <span class="material-symbols-outlined text-[10px] text-on-surface-variant group-hover:translate-x-1 transition-transform">arrow_forward_ios</span>
+                            </div>
+                            <p class="text-[11px] text-on-surface-variant uppercase group-hover:text-white transition-colors">Personal library, technical texts, and memory buffers.</p>
+                        </a>
+
+                        <!-- RESEARCH HUB -->
+                        <a href="research.html" class="bg-surface-inset border border-white/5 p-6 space-y-4 hover:border-secondary-cyan transition-colors group">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-sm text-secondary-cyan">description</span>
+                                    <span class="text-[10px] font-bold tracking-widest uppercase">DIR/RESEARCH_LOG</span>
+                                </div>
+                                <span class="material-symbols-outlined text-[10px] text-on-surface-variant group-hover:translate-x-1 transition-transform">arrow_forward_ios</span>
+                            </div>
+                            <p class="text-[11px] text-on-surface-variant uppercase group-hover:text-white transition-colors">Scholarly papers, technical reports, and formal analysis.</p>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer id="main-footer" class="ml-16 md:ml-64 py-4 px-8 border-t border-white/5 flex justify-between items-center text-[10px] tracking-widest text-on-surface-variant/50 transition-all duration-300">
+            <div>© 2026 NEWTON_TIWARI</div>
+            <div class="flex gap-6">
+                <a href="https://github.com/Nwtnn" target="_blank" class="hover:text-primary-neon stepped-transition">GITHUB</a>
+                <a href="https://www.linkedin.com/in/newton-tiwari-7078a3263/" target="_blank" class="hover:text-primary-neon stepped-transition">LINKEDIN</a>
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>

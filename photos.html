@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEWTON_TIWARI // PHOTO_GALLERY</title>
+    <meta name="description" content="Newton Tiwari - Photo Gallery. Visual collection of projects, captures, and digital art.">
+    <meta name="keywords" content="Newton Tiwari, Photos, Gallery, Visuals, Portfolio">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'surface': '#131313',
+                        'surface-inset': '#0e0e0e',
+                        'surface-raised': '#1c1b1b',
+                        'surface-high': '#2a2a2a',
+                        'primary-neon': '#00ff41',
+                        'secondary-cyan': '#9cf0ff',
+                        'tertiary-amber': '#ffba38',
+                    }
+                }
+            }
+        }
+
+        // Scroll Reveal logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            reveals.forEach(reveal => {
+                reveal.classList.add('reveal');
+                observer.observe(reveal);
+            });
+
+            // Active Link Highlight
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('nav a, aside a');
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentPath) {
+                    link.classList.add('text-primary-neon');
+                    link.classList.add('active-nav-link');
+                    link.classList.remove('text-on-surface-variant');
+                }
+            });
+        });
+    </script>
+    <script src="system.js" defer></script>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-neon selection:text-black">
+    
+    <!-- CRT SCANLINE OVERLAY -->
+    <div class="scanline-overlay"></div>
+
+    <!-- MAIN WRAPPER FOR FLICKER -->
+    <div class="crt-flicker min-h-screen flex flex-col">
+        
+        <!-- HEADER / NAVIGATION -->
+        <header id="main-header" class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-sm border-b border-white/5 px-6 py-3 flex justify-between items-center transition-all duration-300">
+            <div class="flex items-center gap-4">
+                <span class="text-primary-neon font-bold tracking-widest sidebar-toggle hover:glow-primary transition-all">[newton@portfolio ~]$</span>
+                <nav class="hidden md:flex gap-8">
+                    <a href="index.html" class="text-on-surface-variant font-bold tracking-tight text-sm uppercase hover:opacity-80 stepped-transition">HOME</a>
+                    <a href="projects.html" class="text-on-surface-variant tracking-tight text-sm uppercase hover:text-primary-neon stepped-transition">PROJECTS</a>
+                    <a href="skills.html" class="text-on-surface-variant tracking-tight text-sm uppercase hover:text-primary-neon stepped-transition">SKILLS</a>
+                    <a href="contact.html" class="text-on-surface-variant tracking-tight text-sm uppercase hover:text-primary-neon stepped-transition">CONTACT</a>
+                </nav>
+            </div>
+            <div class="flex items-center gap-4 text-xs">
+                <div class="flex items-center gap-2">
+                    <div class="w-2 h-2 bg-primary-neon shadow-[0_0_8px_#00ff41] animate-pulse"></div>
+                    <span class="text-primary-neon opacity-70">SYSTEM_ACTIVE</span>
+                </div>
+                <span class="text-on-surface-variant opacity-50">V2.1.0</span>
+            </div>
+        </header>
+
+        <!-- SIDEBAR (FOR DESKTOP) -->
+        <aside id="main-sidebar" class="fixed left-0 top-0 h-full w-20 md:w-64 bg-surface-inset border-r border-white/5 pt-20 flex flex-col z-40 transition-all duration-300">
+            <div class="px-6 mb-8 hidden md:block">
+                <div class="text-primary-neon font-black text-lg">NEWTON_TIWARI</div>
+                <div class="text-on-surface-variant opacity-70 text-[10px] uppercase">VER_2.1.0</div>
+            </div>
+            
+            <nav class="flex-1">
+                <ul class="space-y-1">
+                    <li>
+                        <a href="index.html" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
+                            <span class="material-symbols-outlined text-xl">home</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">HOME</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="projects.html" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
+                            <span class="material-symbols-outlined text-xl">grid_view</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">PROJECTS</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="skills.html" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
+                            <span class="material-symbols-outlined text-xl">psychology</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">SKILLS</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.html" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
+                            <span class="material-symbols-outlined text-xl">alternate_email</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">CONTACT</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="photos.html" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
+                            <span class="material-symbols-outlined text-xl">photo_library</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">PHOTOS</span>
+                        </a>
+                    </li>
+                    <!-- ACTIVITY LOG WITH SUB-ICONS -->
+                    <li>
+                        <a href="activity.html" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-tertiary-amber hover:bg-surface-raised stepped-transition group">
+                            <span class="material-symbols-outlined text-xl">history</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">ACTIVITY LOG</span>
+                        </a>
+                        <!-- Sub-icons for Activity Log -->
+                        <ul class="ml-12 mt-1 space-y-2 hidden md:block opacity-60">
+                            <li>
+                                <a href="play.html" class="flex items-center gap-3 text-[9px] font-bold tracking-widest hover:text-primary-neon stepped-transition">
+                                    <span class="material-symbols-outlined text-xs">videogame_asset</span> GAME
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="books.html" class="flex items-center gap-3 text-[9px] font-bold tracking-widest hover:text-primary-neon stepped-transition">
+                                    <span class="material-symbols-outlined text-xs">library_books</span> BOOKS
+                                </a>
+                            </li>
+                            <li>
+                                <a href="research.html" class="flex items-center gap-3 text-[9px] font-bold tracking-widest hover:text-primary-neon stepped-transition">
+                                    <span class="material-symbols-outlined text-xs">description</span> RESEARCH_PAPERS
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="px-6 py-8 border-t border-white/5">
+                <a href="#" class="flex items-center gap-4 text-tertiary-amber hover:opacity-70 stepped-transition group shutdown-trigger">
+                    <span class="material-symbols-outlined text-xl">power_settings_new</span>
+                    <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">SYS_OFF</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT AREA -->
+        <main id="main-content" class="ml-16 md:ml-20 pt-16 flex-1 relative overflow-hidden transition-all duration-300">
+            <!-- DECORATIVE GRID -->
+            <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#00ff41 1px, transparent 1px); background-size: 40px 40px;"></div>
+
+
+
+            <!-- PHOTO GALLERY SECTION: PHOTOS -->
+            <section id="photos" class="py-24 px-8 md:px-16 max-w-6xl mx-auto relative z-10">
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold tracking-tighter uppercase mb-2">&gt; PHOTO_GALLERY</h2>
+                    <div class="h-0.5 w-24 bg-primary-neon/30"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="aspect-square bg-surface-inset border border-white/5 overflow-hidden group">
+                        <div class="w-full h-full bg-surface-raised flex items-center justify-center text-[10px] opacity-20 uppercase font-bold group-hover:opacity-100 transition-opacity">IMG_DATA_01</div>
+                    </div>
+                    <div class="aspect-square bg-surface-inset border border-white/5 overflow-hidden group">
+                        <div class="w-full h-full bg-surface-raised flex items-center justify-center text-[10px] opacity-20 uppercase font-bold group-hover:opacity-100 transition-opacity">IMG_DATA_02</div>
+                    </div>
+                    <div class="aspect-square bg-surface-inset border border-white/5 overflow-hidden group">
+                        <div class="w-full h-full bg-surface-raised flex items-center justify-center text-[10px] opacity-20 uppercase font-bold group-hover:opacity-100 transition-opacity">IMG_DATA_03</div>
+                    </div>
+                </div>
+            </section>
+
+
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer id="main-footer" class="ml-16 md:ml-64 py-4 px-8 border-t border-white/5 flex justify-between items-center text-[10px] tracking-widest text-on-surface-variant/50 transition-all duration-300">
+            <div>© 2026 NEWTON_TIWARI</div>
+            <div class="flex gap-6">
+                <a href="https://github.com/Nwtnn" target="_blank" class="hover:text-primary-neon stepped-transition">GITHUB</a>
+                <a href="https://www.linkedin.com/in/newton-tiwari-7078a3263/" target="_blank" class="hover:text-primary-neon stepped-transition">LINKEDIN</a>
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>

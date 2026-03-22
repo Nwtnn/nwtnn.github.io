@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KINETIC_CONSOLE // TERMINAL_HOME</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-dim": "#131313",
+                        "surface-tint": "#00e639",
+                        "on-primary-container": "#007117",
+                        "on-surface-variant": "#b9ccb2",
+                        "tertiary-fixed": "#ffdeac",
+                        "error-container": "#93000a",
+                        "outline": "#84967e",
+                        "surface-container-lowest": "#0e0e0e",
+                        "error": "#ffb4ab",
+                        "secondary": "#bdf4ff",
+                        "primary": "#ebffe2",
+                        "on-primary-fixed-variant": "#00530e",
+                        "primary-container": "#00ff41",
+                        "on-secondary": "#00363d",
+                        "on-secondary-container": "#00616d",
+                        "outline-variant": "#3b4b37",
+                        "on-primary-fixed": "#002203",
+                        "secondary-fixed-dim": "#00daf3",
+                        "on-tertiary-fixed-variant": "#604100",
+                        "surface-container-low": "#1c1b1b",
+                        "secondary-fixed": "#9cf0ff",
+                        "primary-fixed": "#72ff70",
+                        "on-error": "#690005",
+                        "tertiary-fixed-dim": "#ffba38",
+                        "secondary-container": "#00e3fd",
+                        "on-tertiary-fixed": "#281900",
+                        "primary-fixed-dim": "#00e639",
+                        "on-secondary-fixed": "#001f24",
+                        "inverse-primary": "#006e16",
+                        "tertiary-container": "#ffd799",
+                        "surface-container-highest": "#353534",
+                        "on-surface": "#e5e2e1",
+                        "surface-container": "#201f1f",
+                        "surface": "#131313",
+                        "on-primary": "#003907",
+                        "on-tertiary": "#432c00",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-high": "#2a2a2a",
+                        "tertiary": "#fff8f3",
+                        "surface-bright": "#3a3939",
+                        "background": "#131313",
+                        "surface-variant": "#353534",
+                        "inverse-on-surface": "#313030",
+                        "on-secondary-fixed-variant": "#004f58",
+                        "on-tertiary-container": "#825900",
+                        "on-background": "#e5e2e1",
+                        "inverse-surface": "#e5e2e1"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Space Grotesk"],
+                        "label": ["Space Grotesk"]
+                    },
+                    borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scanline-overlay {
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+        .glitch-effect:active {
+            transform: translateY(2px);
+            filter: hue-rotate(90deg);
+        }
+        .blink {
+            animation: blinker 1s step-start infinite;
+        }
+        @keyframes blinker {
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container overflow-hidden">
+<!-- CRT SCANLINE OVERLAY -->
+<div class="fixed inset-0 z-[100] scanline-overlay opacity-30"></div>
+<!-- SHARED COMPONENT: TopAppBar -->
+<header class="flex justify-between items-center w-full px-6 py-3 fixed top-0 z-50 bg-[#131313] bg-opacity-95 backdrop-blur-sm border-b-0 flat no shadows shadow-[0_0_10px_rgba(0,255,65,0.1)]">
+<div class="flex items-center">
+<span class="text-[#00FF41] font-bold tracking-widest mr-4 font-headline uppercase">[root@kinetic-console ~]$</span>
+<nav class="hidden md:flex gap-6">
+<a class="font-space-grotesk uppercase tracking-tighter text-[0.875rem] text-[#00FF41] before:content-['*'] before:mr-1 font-bold transition-all duration-75" href="#">HOME</a>
+<a class="font-space-grotesk uppercase tracking-tighter text-[0.875rem] text-[#b9ccb2] hover:bg-[#1c1b1b] hover:text-[#00FF41] transition-all duration-75" href="#">PROJECTS</a>
+<a class="font-space-grotesk uppercase tracking-tighter text-[0.875rem] text-[#b9ccb2] hover:bg-[#1c1b1b] hover:text-[#00FF41] transition-all duration-75" href="#">BIO</a>
+<a class="font-space-grotesk uppercase tracking-tighter text-[0.875rem] text-[#b9ccb2] hover:bg-[#1c1b1b] hover:text-[#00FF41] transition-all duration-75" href="#">CONNECT</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#00FF41] cursor-pointer hover:bg-[#1c1b1b] p-1">settings_ethernet</span>
+<span class="material-symbols-outlined text-[#00FF41] cursor-pointer hover:bg-[#1c1b1b] p-1">schedule</span>
+<div class="h-2 w-2 bg-primary-container animate-pulse shadow-[0_0_8px_#00ff41]"></div>
+<span class="font-space-grotesk uppercase tracking-tighter text-[0.875rem] text-[#00FF41]">SYSTEM_ACTIVE</span>
+</div>
+</header>
+<!-- SHARED COMPONENT: SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col pt-16 z-40 bg-[#0e0e0e] w-20 md:w-64 border-r-0">
+<div class="p-6 mb-8">
+<div class="text-[#00FF41] font-black text-lg font-headline">KINETIC_OS</div>
+<div class="text-[#b9ccb2] opacity-70 text-[0.6875rem] font-medium font-space-grotesk">VER_2.0.48</div>
+</div>
+<nav class="flex-1">
+<ul class="space-y-1">
+<li class="bg-[#1c1b1b] text-[#00FF41] border-l-4 border-[#00FF41] px-6 py-3 flex items-center gap-3 cursor-pointer group active:scale-95 duration-100">
+<span class="material-symbols-outlined">terminal</span>
+<span class="font-space-grotesk text-[0.6875rem] font-medium uppercase tracking-widest hidden md:block">TERMINAL</span>
+</li>
+<li class="text-[#b9ccb2] opacity-70 hover:bg-[#1c1b1b] hover:opacity-100 px-6 py-3 flex items-center gap-3 cursor-pointer group active:scale-95 duration-100">
+<span class="material-symbols-outlined">folder_open</span>
+<span class="font-space-grotesk text-[0.6875rem] font-medium uppercase tracking-widest hidden md:block">FILES</span>
+</li>
+<li class="text-[#b9ccb2] opacity-70 hover:bg-[#1c1b1b] hover:opacity-100 px-6 py-3 flex items-center gap-3 cursor-pointer group active:scale-95 duration-100">
+<span class="material-symbols-outlined">memory</span>
+<span class="font-space-grotesk text-[0.6875rem] font-medium uppercase tracking-widest hidden md:block">SYSTEM</span>
+</li>
+<li class="text-[#b9ccb2] opacity-70 hover:bg-[#1c1b1b] hover:opacity-100 px-6 py-3 flex items-center gap-3 cursor-pointer group active:scale-95 duration-100">
+<span class="material-symbols-outlined">hub</span>
+<span class="font-space-grotesk text-[0.6875rem] font-medium uppercase tracking-widest hidden md:block">NET</span>
+</li>
+</ul>
+</nav>
+<div class="p-6">
+<div class="text-[#b9ccb2] opacity-70 hover:bg-[#1c1b1b] hover:opacity-100 py-3 flex items-center gap-3 cursor-pointer group active:scale-95 duration-100">
+<span class="material-symbols-outlined">power_settings_new</span>
+<span class="font-space-grotesk text-[0.6875rem] font-medium uppercase tracking-widest hidden md:block">LOGOUT</span>
+</div>
+</div>
+</aside>
+<!-- MAIN CONTENT CANVAS -->
+<main class="ml-20 md:ml-64 pt-16 pb-12 px-8 min-h-screen flex flex-col justify-center bg-surface relative">
+<!-- DECORATIVE GRID BACKGROUND -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#00ff41 1px, transparent 1px); background-size: 32px 32px;"></div>
+<!-- HERO SECTION: THE SOVEREIGN TERMINAL -->
+<div class="max-w-5xl w-full mx-auto space-y-8 relative z-10">
+<header class="space-y-2">
+<div class="flex items-center gap-2">
+<div class="h-[2px] w-12 bg-primary-container"></div>
+<span class="text-primary-container font-label text-[0.6875rem] tracking-[0.3em] uppercase">SYSTEM_IDENTITY_VERIFIED</span>
+</div>
+<h1 class="text-[3.5rem] md:text-[5rem] font-headline font-bold leading-none tracking-tighter uppercase text-on-surface">
+                    SYS_ADMIN: <span class="text-primary-container">ALEX_VANCE</span>
+</h1>
+<p class="text-on-surface-variant max-w-2xl font-body text-lg leading-relaxed border-l-2 border-outline-variant pl-4">
+                    High-end architectural engineer specializing in digital sovereignty and brutalist interface systems.
+                </p>
+</header>
+<!-- TERMINAL WINDOW MODULE -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 shadow-[0_0_40px_rgba(0,0,0,0.5)] overflow-hidden">
+<!-- Terminal Header Bar -->
+<div class="bg-surface-container-high px-4 py-2 flex justify-between items-center border-b border-outline-variant/20">
+<div class="flex items-center gap-2">
+<div class="flex gap-1.5">
+<div class="w-2.5 h-2.5 bg-error/40"></div>
+<div class="w-2.5 h-2.5 bg-tertiary-fixed-dim/40"></div>
+<div class="w-2.5 h-2.5 bg-primary-container/40"></div>
+</div>
+<span class="text-[0.6875rem] font-label text-on-surface-variant uppercase tracking-widest ml-4">tty1 — console_session_log</span>
+</div>
+<div class="text-[0.6875rem] font-label text-on-surface-variant/50">80x24</div>
+</div>
+<!-- Terminal Content -->
+<div class="p-6 font-mono text-[0.875rem] space-y-2 min-h-[400px]">
+<div class="flex gap-4">
+<span class="text-primary-container opacity-50">[0.000000]</span>
+<span class="text-on-surface-variant">Initializing KINETIC_OS kernel 2.0.48...</span>
+</div>
+<div class="flex gap-4">
+<span class="text-primary-container opacity-50">[0.045102]</span>
+<span class="text-on-surface-variant">Mounting local file systems: <span class="text-primary-container">SUCCESS</span></span>
+</div>
+<div class="flex gap-4">
+<span class="text-primary-container opacity-50">[0.089421]</span>
+<span class="text-on-surface-variant">Checking encrypted volumes...</span>
+</div>
+<div class="flex gap-4">
+<span class="text-primary-container opacity-50">[0.124853]</span>
+<span class="text-on-surface-variant">Network interface 'eth0' linked at 100Gbps.</span>
+</div>
+<div class="pt-4 flex gap-2">
+<span class="text-primary-container font-bold">$</span>
+<div class="flex-1">
+<span class="text-on-surface font-medium">fetch --user=ALEX_VANCE --display=all</span>
+<div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-8 py-4 px-4 bg-surface-container-low border-l-4 border-primary-container">
+<div class="space-y-1">
+<div class="flex justify-between border-b border-outline-variant/10 py-1">
+<span class="text-primary-container uppercase font-bold text-[10px]">OS:</span>
+<span class="text-on-surface text-[12px]">KineticOS 2.0.48-LTS</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/10 py-1">
+<span class="text-primary-container uppercase font-bold text-[10px]">Host:</span>
+<span class="text-on-surface text-[12px]">Vance-Station-Prime</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/10 py-1">
+<span class="text-primary-container uppercase font-bold text-[10px]">Uptime:</span>
+<span class="text-on-surface text-[12px]">256 days, 14:02:11</span>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between border-b border-outline-variant/10 py-1">
+<span class="text-primary-container uppercase font-bold text-[10px]">Shell:</span>
+<span class="text-on-surface text-[12px]">zsh 5.8.1</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/10 py-1">
+<span class="text-primary-container uppercase font-bold text-[10px]">Terminal:</span>
+<span class="text-on-surface text-[12px]">Kinetic-Console-Emulator</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/10 py-1">
+<span class="text-primary-container uppercase font-bold text-[10px]">CPU:</span>
+<span class="text-on-surface text-[12px]">Quantum-X 64-Core</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-4 flex items-center gap-2">
+<span class="text-primary-container font-bold">$</span>
+<span class="text-on-surface">deploy_intro_sequence</span>
+<span class="w-2.5 h-5 bg-primary-container blink shadow-[0_0_10px_#00ff41]"></span>
+</div>
+</div>
+</div>
+<!-- ACTION GRID (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Module 1 -->
+<div class="bg-surface-container-low p-6 group cursor-pointer hover:bg-surface-container-high transition-all duration-75 relative">
+<div class="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary-container">arrow_outward</span>
+</div>
+<div class="text-primary-container font-label text-[10px] tracking-widest mb-4">LOG_01</div>
+<h3 class="text-on-surface font-headline font-bold text-xl uppercase mb-2">&gt; PROJECTS</h3>
+<p class="text-on-surface-variant text-sm font-body">Browse the architectural blueprints of my latest digital infrastructures.</p>
+</div>
+<!-- Module 2 -->
+<div class="bg-surface-container-low p-6 group cursor-pointer hover:bg-surface-container-high transition-all duration-75 relative border-l border-primary-container/20">
+<div class="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary-container">terminal</span>
+</div>
+<div class="text-primary-container font-label text-[10px] tracking-widest mb-4">LOG_02</div>
+<h3 class="text-on-surface font-headline font-bold text-xl uppercase mb-2">&gt; REPOSITORY</h3>
+<p class="text-on-surface-variant text-sm font-body">Direct access to open-source components and modular design libraries.</p>
+</div>
+<!-- Module 3 -->
+<div class="bg-primary-container p-6 group cursor-pointer hover:bg-primary-fixed transition-all duration-75 relative glitch-effect">
+<div class="absolute top-0 right-0 p-2">
+<span class="material-symbols-outlined text-on-primary-container">sensors</span>
+</div>
+<div class="text-on-primary-container font-label text-[10px] tracking-widest mb-4">LIVE_SIGNAL</div>
+<h3 class="text-on-primary-container font-headline font-bold text-xl uppercase mb-2">&gt; CONNECT</h3>
+<p class="text-on-primary-container/80 text-sm font-body">Initiate an encrypted handshake protocol for collaboration.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- SHARED COMPONENT: Footer -->
+<footer class="w-full py-4 px-8 flex justify-between items-center fixed bottom-0 z-50 bg-[#131313] border-t border-[#3b4b37]/20">
+<div class="flex items-center gap-6">
+<span class="font-space-grotesk text-[10px] tracking-widest text-[#b9ccb2]">© 2024 KINETIC_CONSOLE. ALL RIGHTS RESERVED.</span>
+<div class="h-4 w-[1px] bg-outline-variant/30"></div>
+<div class="flex gap-4">
+<a class="font-space-grotesk text-[10px] tracking-widest text-[#b9ccb2] hover:text-[#00FF41] underline decoration-dotted transition-colors duration-150" href="#">GITHUB</a>
+<a class="font-space-grotesk text-[10px] tracking-widest text-[#b9ccb2] hover:text-[#00FF41] underline decoration-dotted transition-colors duration-150" href="#">LINKEDIN</a>
+<a class="font-space-grotesk text-[10px] tracking-widest text-[#b9ccb2] hover:text-[#00FF41] underline decoration-dotted transition-colors duration-150" href="#">KEYBASE</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<span class="text-[#b9ccb2] text-[10px] tracking-widest uppercase">Latency:</span>
+<span class="text-[#00FF41] text-[10px] font-bold">14ms</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[#b9ccb2] text-[10px] tracking-widest uppercase">Node:</span>
+<span class="text-[#00FF41] text-[10px] font-bold">US-EAST-1</span>
+</div>
+</div>
+</footer>
+</body></html>

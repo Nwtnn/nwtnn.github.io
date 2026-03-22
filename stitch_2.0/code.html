@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SOVEREIGN_CONSOLE // WATCH</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-container": "#00ff41",
+              "inverse-on-surface": "#313030",
+              "secondary-container": "#00e3fd",
+              "surface-variant": "#353534",
+              "on-tertiary-fixed-variant": "#604100",
+              "on-secondary-fixed-variant": "#004f58",
+              "tertiary-fixed-dim": "#ffba38",
+              "on-tertiary-container": "#825900",
+              "on-surface": "#e5e2e1",
+              "on-secondary": "#00363d",
+              "surface-dim": "#131313",
+              "secondary-fixed-dim": "#00daf3",
+              "primary-fixed": "#72ff70",
+              "on-surface-variant": "#b9ccb2",
+              "on-secondary-container": "#00616d",
+              "on-background": "#e5e2e1",
+              "inverse-surface": "#e5e2e1",
+              "primary-fixed-dim": "#00e639",
+              "outline-variant": "#3b4b37",
+              "secondary-fixed": "#9cf0ff",
+              "on-primary-fixed": "#002203",
+              "surface-bright": "#3a3939",
+              "on-primary-container": "#007117",
+              "inverse-primary": "#006e16",
+              "surface-container-high": "#2a2a2a",
+              "on-primary": "#003907",
+              "tertiary-fixed": "#ffdeac",
+              "surface-container-highest": "#353534",
+              "on-primary-fixed-variant": "#00530e",
+              "primary": "#ebffe2",
+              "error": "#ffb4ab",
+              "background": "#131313",
+              "on-secondary-fixed": "#001f24",
+              "surface-container-low": "#1c1b1b",
+              "tertiary-container": "#ffd799",
+              "on-error": "#690005",
+              "on-tertiary-fixed": "#281900",
+              "tertiary": "#fff8f3",
+              "surface-container-lowest": "#0e0e0e",
+              "outline": "#84967e",
+              "surface-tint": "#00e639",
+              "surface-container": "#201f1f",
+              "secondary": "#bdf4ff",
+              "surface": "#131313",
+              "on-tertiary": "#432c00",
+              "on-error-container": "#ffdad6",
+              "error-container": "#93000a"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Space Grotesk"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            background-image: linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px);
+            background-size: 100% 3px;
+            font-family: 'Space Grotesk', monospace;
+        }
+        .glitch-sm:hover {
+            text-shadow: 1px 0 #9cf0ff, -1px 0 #ffba38;
+        }
+        .stepped-transition {
+            transition-timing-function: steps(4, end);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col z-40 bg-[#131313] w-64 border-r border-[#3b4b37]/20 tonal-shift shadow-[0_0_10px_rgba(0,255,65,0.1)]">
+<div class="p-6">
+<div class="text-xl font-bold text-[#00FF41] tracking-widest uppercase">SOVEREIGN_CONSOLE</div>
+<div class="font-['Space_Grotesk'] font-medium text-[0.6875rem] text-on-surface-variant uppercase mt-1 opacity-50">v4.0.1_STABLE</div>
+</div>
+<nav class="flex-1 mt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-[#b9ccb2] hover:text-[#00FF41] transition-all duration-100 font-['Space_Grotesk'] uppercase tracking-tighter text-[0.875rem] hover:bg-[#1c1b1b]" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+                TERMINAL
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#b9ccb2] hover:text-[#00FF41] transition-all duration-100 font-['Space_Grotesk'] uppercase tracking-tighter text-[0.875rem] hover:bg-[#1c1b1b]" href="#">
+<span class="material-symbols-outlined" data-icon="folder_open">folder_open</span>
+                FILES
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#b9ccb2] hover:text-[#00FF41] transition-all duration-100 font-['Space_Grotesk'] uppercase tracking-tighter text-[0.875rem] hover:bg-[#1c1b1b]" href="#">
+<span class="material-symbols-outlined" data-icon="settings_input_component">settings_input_component</span>
+                SYSTEM
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#b9ccb2] hover:text-[#00FF41] transition-all duration-100 font-['Space_Grotesk'] uppercase tracking-tighter text-[0.875rem] hover:bg-[#1c1b1b]" href="#">
+<span class="material-symbols-outlined" data-icon="lan">lan</span>
+                NET
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#b9ccb2] hover:text-[#00FF41] transition-all duration-100 font-['Space_Grotesk'] uppercase tracking-tighter text-[0.875rem] hover:bg-[#1c1b1b]" href="#">
+<span class="material-symbols-outlined" data-icon="photo_library">photo_library</span>
+                PHOTOS
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#00FF41] bg-[#1c1b1b] border-l-2 border-[#00FF41] before:content-['*'] font-['Space_Grotesk'] uppercase tracking-tighter text-[0.875rem]" href="#">
+<span class="material-symbols-outlined ml-1" data-icon="history_edu">history_edu</span>
+                ACTIVITY LOG
+            </a>
+</nav>
+<div class="mt-auto border-t border-[#3b4b37]/20 p-2">
+<a class="flex items-center gap-3 px-4 py-3 text-[#b9ccb2] hover:text-[#00FF41] transition-all duration-100 font-['Space_Grotesk'] uppercase tracking-tighter text-[0.875rem] hover:bg-[#1c1b1b]" href="#">
+<span class="material-symbols-outlined" data-icon="videogame_asset">videogame_asset</span>
+                PLAY
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#00FF41] bg-[#1c1b1b] border-l-2 border-[#00FF41] before:content-['*'] font-['Space_Grotesk'] uppercase tracking-tighter text-[0.875rem]" href="#">
+<span class="material-symbols-outlined ml-1" data-icon="visibility">visibility</span>
+                WATCH
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#b9ccb2] hover:text-[#00FF41] transition-all duration-100 font-['Space_Grotesk'] uppercase tracking-tighter text-[0.875rem] hover:bg-[#1c1b1b]" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+                READ
+            </a>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-64 flex justify-between items-center px-6 z-50 h-12 bg-[#131313] border-b border-[#3b4b37]/20">
+<div class="text-lg font-black text-[#00FF41] uppercase tracking-widest">SYSTEM_STATUS: ACTIVE</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#b9ccb2] hover:text-[#9cf0ff] cursor-crosshair text-sm" data-icon="bolt">bolt</span>
+<span class="material-symbols-outlined text-[#b9ccb2] hover:text-[#9cf0ff] cursor-crosshair text-sm" data-icon="terminal">terminal</span>
+<span class="material-symbols-outlined text-[#b9ccb2] hover:text-[#9cf0ff] cursor-crosshair text-sm" data-icon="power_settings_new">power_settings_new</span>
+</div>
+<div class="h-4 w-px bg-[#3b4b37]/40"></div>
+<div class="flex items-center gap-2">
+<span class="text-[0.6875rem] font-medium text-[#b9ccb2] uppercase tracking-widest">OPERATOR:ADMIN</span>
+<div class="w-2 h-2 bg-primary-container"></div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-12 p-8 min-h-screen">
+<!-- Currently Watching Section -->
+<section class="mb-12">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-on-surface font-bold text-lg tracking-widest flex items-center gap-2">
+<span class="text-primary-container">&gt;</span> CURRENTLY_WATCHING
+                </h2>
+<div class="text-[0.6875rem] text-primary-container font-mono bg-primary-container/10 px-2 py-1 flex items-center gap-2">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary-container"></span>
+</span>
+                    STATUS: STREAMING_ACTIVE
+                </div>
+</div>
+<div class="relative bg-surface-container-lowest border border-outline-variant/30 group">
+<!-- Large Hero Card -->
+<div class="flex flex-col md:flex-row h-[400px]">
+<div class="w-full md:w-2/3 relative overflow-hidden bg-black">
+<img alt="Sovereign State S2" class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-500" data-alt="Futuristic cyberpunk city silhouette with green highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFVCFg4d3_htAYRExqfvE4CrDLIfdk65Fet4cQkUkC3RZ_rBHD789Enu-MFhgM47JU_aM_wNFmWChBNH4S-Kji-KQ4MxB8VUTa_xeHXNfOpg0BAUuczQOLETDE7vEln2KH5Z2NmJDHcVJCJuA4PGlDZAWPxa6tGQ-nBmVLfiZ2LsfwNEa7ydUnzjVAVy8eDMnPswyy9yPlT41AMd-pki2f2PhAlC6eW5jsSD0ETAx7kBbE-HFVACmNHV_KfM-3ijJ62odZylEQ9CSn"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface-container-lowest via-transparent to-transparent"></div>
+</div>
+<div class="w-full md:w-1/3 p-8 flex flex-col justify-center border-l border-outline-variant/20">
+<span class="text-[0.6875rem] text-secondary-fixed mb-2 tracking-widest">ENCRYPTED_MEDIA // VID_0942</span>
+<h1 class="text-4xl font-black text-on-surface mb-4 leading-none tracking-tighter">Sovereign_State_S2</h1>
+<p class="text-on-surface-variant text-sm mb-8 leading-relaxed">
+                            EPISODE_04: "THE_GHOST_IN_THE_NODE". A deep dive into the decentralized networks of the 2090s.
+                        </p>
+<div class="space-y-4">
+<div class="flex justify-between text-[0.6875rem] font-mono text-on-surface-variant">
+<span>BUFFERING... 64%</span>
+<span>24:12 / 52:00</span>
+</div>
+<div class="w-full h-1 bg-surface-container-high relative">
+<div class="absolute top-0 left-0 h-full bg-primary-container" style="width: 64%;"></div>
+<div class="absolute top-0 left-0 h-full bg-primary-container/20 blur-sm" style="width: 64%;"></div>
+</div>
+<div class="flex gap-4 mt-6">
+<button class="px-6 py-2 bg-primary-container text-on-primary-container font-bold text-xs uppercase tracking-widest hover:brightness-110 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                                    RESUME_FEED
+                                </button>
+<button class="px-6 py-2 border border-outline-variant text-on-surface-variant font-bold text-xs uppercase tracking-widest hover:bg-surface-container-low transition-all">
+                                    METADATA
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Corner Accents -->
+<div class="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary-container/40 m-2"></div>
+<div class="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary-container/40 m-2"></div>
+</div>
+</section>
+<!-- Watch History Grid -->
+<section>
+<div class="flex items-center justify-between mb-6 border-b border-outline-variant/10 pb-2">
+<h2 class="text-on-surface font-bold text-lg tracking-widest flex items-center gap-2">
+<span class="text-secondary-fixed">&gt;</span> WATCH_HISTORY
+                </h2>
+<div class="flex gap-4">
+<span class="text-[0.6875rem] text-on-surface-variant opacity-50 uppercase tracking-widest">SORT: RECENT_FIRST</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="filter_list">filter_list</span>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+<!-- History Item 1 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-video bg-surface-container-lowest overflow-hidden border border-transparent group-hover:border-secondary-fixed/50 transition-all">
+<img alt="The Grid" class="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-75 transition-all duration-300" data-alt="Retro computer circuits with neon lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGvgvRTozJIyxs3kZcOpuJVfipo6tAKD49gdPSjPCeA2vT5jBIDS2susfe4ReRouFVUFiGGcFuaTEzMMGdWFEwX03ovF2ALvtijBBoLNagONF7JXcukwf9KS42yJMy4OXSVF1Ky3j8oA-smrtM8EoMeDp9ftRdIplGM_MJO3EJX2XVlArSV6OOF8hptK4ITedZpsO6f47FVZpL-W1Um87mcZDpVbEXeLxYp4NZ41oVnN33blei2_DAk-nQqiSz436S83KRPu1Dd1_V"/>
+<div class="absolute top-2 right-2 px-1.5 py-0.5 bg-surface-dim/80 text-[0.5rem] border border-outline-variant text-on-surface-variant uppercase tracking-widest">
+                            ARCHIVED
+                        </div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-secondary-fixed text-4xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+</div>
+<div class="mt-2 space-y-1">
+<h3 class="text-xs font-bold text-on-surface uppercase tracking-tight group-hover:text-secondary-fixed transition-colors">THE_ARCHITECTS_CORE</h3>
+<div class="flex justify-between items-center text-[0.625rem] text-on-surface-variant uppercase font-mono">
+<span>S1:EP12</span>
+<span>12_OCT_2023</span>
+</div>
+</div>
+</div>
+<!-- History Item 2 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-video bg-surface-container-lowest overflow-hidden border border-transparent group-hover:border-secondary-fixed/50 transition-all">
+<img alt="Signal Loss" class="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-75 transition-all duration-300" data-alt="Digital distortion and hardware circuit boards" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMLeFANgL4S8tHpps-t_YKkRKz454a-Oh-BZPdyTwOG6vL5Kk9QYNVxG0b3nD80YwlEMMdFy52cwyK6pZ5v8QOhGcq4d5qcA8D6VKtvKlBFU-R62ub2X27qcQInoZ8BszK1GZOBV67TT-Iry4PEm3SBnvfiJ5YD-ugcfHfCQGuluWRB4uXytQlJEopZBUIBbNmvYRYfsuHBDshfvMXtZmPbyia9boZw-qp-SEnviDlgYYaTmyZVWf-CLoQVLoqAxivhba0z3CTL085"/>
+<div class="absolute top-2 right-2 px-1.5 py-0.5 bg-surface-dim/80 text-[0.5rem] border border-outline-variant text-on-surface-variant uppercase tracking-widest">
+                            ARCHIVED
+                        </div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-secondary-fixed text-4xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+</div>
+<div class="mt-2 space-y-1">
+<h3 class="text-xs font-bold text-on-surface uppercase tracking-tight group-hover:text-secondary-fixed transition-colors">SIGNAL_LOSS_PROTOCOL</h3>
+<div class="flex justify-between items-center text-[0.625rem] text-on-surface-variant uppercase font-mono">
+<span>MOVIE</span>
+<span>05_OCT_2023</span>
+</div>
+</div>
+</div>
+<!-- History Item 3 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-video bg-surface-container-lowest overflow-hidden border border-transparent group-hover:border-secondary-fixed/50 transition-all">
+<img alt="Data Stream" class="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-75 transition-all duration-300" data-alt="Vertical rows of glowing binary code text" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2pIqem9hWDbQbcqWtJfObQDyLCwvohIa1D108akSA1_b8VgBuvYVCsAovcBP_Ci7VfGZEc6BdpkI0KoWQ9oLkjGhHMUrF68m10sJHnM_Geo3qFQ2DK0Hwte1raaGdcUipqwGAB0dLWkJo2ASGhHm04Z5tVl0VTJ8YlLsrNKAwP0sQB1QGUZxXNdzkj9wenrJowzW_BSGAsZEltw9qjYv-DqkPe5FyK68aor3rCnmkbAdhLMNBUbEzzEx5ZzVytGRk4jqSMjnm56Rf"/>
+<div class="absolute top-2 right-2 px-1.5 py-0.5 bg-surface-dim/80 text-[0.5rem] border border-outline-variant text-on-surface-variant uppercase tracking-widest">
+                            ARCHIVED
+                        </div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-secondary-fixed text-4xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+</div>
+<div class="mt-2 space-y-1">
+<h3 class="text-xs font-bold text-on-surface uppercase tracking-tight group-hover:text-secondary-fixed transition-colors">BIT_CRUSH_REVOLT</h3>
+<div class="flex justify-between items-center text-[0.625rem] text-on-surface-variant uppercase font-mono">
+<span>S3:EP01</span>
+<span>28_SEP_2023</span>
+</div>
+</div>
+</div>
+<!-- History Item 4 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-video bg-surface-container-lowest overflow-hidden border border-transparent group-hover:border-secondary-fixed/50 transition-all">
+<img alt="Earth Orbit" class="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-75 transition-all duration-300" data-alt="Digital view of earth from orbit with network lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAlpn6LBnwlOX8iobWofiwfy5ega7C5QEjBug_DPte7FDtFdMmwtAA-ByQwPlR8tArR4PVmkFvA8suXHaM5GflcMH4LRHt-BHimphdmqCA7O07vHzIQr6ilQ6QX6C_hqEamzw-J7kxo5eDY7vJKAE1QoDp7QoHnW9PRrPhwSOgU_2UPx_GnQiJgUenoWbG2Xls-QjDBP4I7ROAAVY5Mlz_5WOLb7itGMV0boP5D5ffFRp7UKCo3ln9YbI5gecKoGgQY1D52ck20Dob"/>
+<div class="absolute top-2 right-2 px-1.5 py-0.5 bg-surface-dim/80 text-[0.5rem] border border-outline-variant text-on-surface-variant uppercase tracking-widest">
+                            ARCHIVED
+                        </div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-secondary-fixed text-4xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+</div>
+<div class="mt-2 space-y-1">
+<h3 class="text-xs font-bold text-on-surface uppercase tracking-tight group-hover:text-secondary-fixed transition-colors">DEEP_SPACE_PINGS</h3>
+<div class="flex justify-between items-center text-[0.625rem] text-on-surface-variant uppercase font-mono">
+<span>DOC_FEATURE</span>
+<span>15_SEP_2023</span>
+</div>
+</div>
+</div>
+<!-- History Item 5 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-video bg-surface-container-lowest overflow-hidden border border-transparent group-hover:border-secondary-fixed/50 transition-all">
+<img alt="Server Farm" class="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-75 transition-all duration-300" data-alt="Glowing blue server rack lights in dark data center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKkYXMLCsy7qtDzuKuSEDRe1k587ZFujO4JSWjHZfW66yKCEOSHKx3sayoEkh2ZNk-DVpvrgRCds54WVGj_LV8nUw1rQH-ODL0AsyMPd6MdRMqgsA34VRnDh_1fWcrDvF4ZRE60DSSVzE2mr7cZ3DGxMsFa3Xrqp_fLCliS_3teSF7SMx_VIPPr_PYyTelb6iBfgUSRp1UZpdWi--NefSrNBbiYZiA-o9PVOt-gP9M1GRuDA-UsFceOC6WZIc1fkfE_zXPZQFHzYHJ"/>
+<div class="absolute top-2 right-2 px-1.5 py-0.5 bg-surface-dim/80 text-[0.5rem] border border-outline-variant text-on-surface-variant uppercase tracking-widest">
+                            ARCHIVED
+                        </div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-secondary-fixed text-4xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+</div>
+<div class="mt-2 space-y-1">
+<h3 class="text-xs font-bold text-on-surface uppercase tracking-tight group-hover:text-secondary-fixed transition-colors">COLD_STORAGE_LOCKED</h3>
+<div class="flex justify-between items-center text-[0.625rem] text-on-surface-variant uppercase font-mono">
+<span>S2:EP22</span>
+<span>01_SEP_2023</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Stats / Metadata -->
+<footer class="mt-16 pt-8 border-t border-outline-variant/10 grid grid-cols-1 md:grid-cols-4 gap-8">
+<div>
+<div class="text-[0.625rem] text-primary-container font-mono mb-2 uppercase tracking-widest">TOTAL_WATCH_TIME</div>
+<div class="text-2xl font-black text-on-surface leading-none">1,402.6 <span class="text-xs text-on-surface-variant">HRS</span></div>
+</div>
+<div>
+<div class="text-[0.625rem] text-secondary-fixed font-mono mb-2 uppercase tracking-widest">CONTENT_ARCHIVED</div>
+<div class="text-2xl font-black text-on-surface leading-none">2,841 <span class="text-xs text-on-surface-variant">FILES</span></div>
+</div>
+<div>
+<div class="text-[0.625rem] text-tertiary-fixed-dim font-mono mb-2 uppercase tracking-widest">SYSTEM_LOAD</div>
+<div class="text-2xl font-black text-on-surface leading-none">12.4 <span class="text-xs text-on-surface-variant">%</span></div>
+</div>
+<div class="flex items-end justify-end">
+<button class="flex items-center gap-2 text-[0.625rem] text-on-surface-variant uppercase tracking-widest hover:text-primary-container transition-colors">
+                    DOWNLOAD_LOGS_CSV
+                    <span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+</button>
+</div>
+</footer>
+</main>
+<!-- Global Scanline Overlay -->
+<div class="pointer-events-none fixed inset-0 z-[100]" style="background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.01), rgba(0, 255, 0, 0.005), rgba(0, 0, 255, 0.01)); background-size: 100% 2px, 3px 100%;"></div>
+</body></html>
