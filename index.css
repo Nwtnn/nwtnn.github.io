@@ -192,9 +192,6 @@ body {
         margin-left: var(--sidebar-w);
         transition: margin-left 0.3s cubic-bezier(0.4,0,0.2,1);
     }
-    header.layout-expanded, main.layout-expanded, footer.layout-expanded {
-        margin-left: var(--sidebar-w-collapsed);
-    }
 
     #sidebar-toggle-btn { display: flex; }
 }
