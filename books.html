@@ -42,25 +42,17 @@
                 observer.observe(reveal);
             });
 
-            // Active Link Highlight
-            let currentPath = window.location.pathname.split('/').pop();
-            if (currentPath === '' || currentPath === 'index.html') currentPath = '/';
-            else currentPath = '/' + currentPath.replace('.html', '');
-            
-            const navLinks = document.querySelectorAll('nav a, aside a');
-            navLinks.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href === currentPath || href === currentPath + '.html') {
-                    link.classList.add('text-primary-neon');
-                    link.classList.add('active-nav-link');
-                    link.classList.remove('text-on-surface-variant');
-                }
-            });
         });
     </script>
     <script src="system.js" defer></script>
 </head>
 <body class="bg-surface text-on-surface selection:bg-primary-neon selection:text-black">
+    <!-- SPLASH SCREEN -->
+    <div id="splash-screen">
+        <div class="splash-logo">N</div>
+        <div class="splash-name">Newton Tiwari</div>
+    </div>
+
     
     <!-- CRT SCANLINE OVERLAY -->
     <div class="scanline-overlay"></div>
@@ -72,6 +64,7 @@
         <header id="main-header" class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-sm border-b border-white/5 px-6 py-3 flex justify-between items-center transition-all duration-300">
             <div class="flex items-center gap-4">
                 <span class="text-primary-neon font-bold tracking-widest sidebar-toggle hover:glow-primary transition-all">[newton@portfolio ~]$</span>
+                <button id="mobile-menu-btn" aria-label="Open navigation">&#9776;</button>
                 <nav class="hidden md:flex gap-8">
                     <a href="/" class="text-on-surface-variant font-bold tracking-tight text-sm uppercase hover:opacity-80 stepped-transition">HOME</a>
                     <a href="/projects" class="text-on-surface-variant tracking-tight text-sm uppercase hover:text-primary-neon stepped-transition">PROJECTS</a>
@@ -89,8 +82,9 @@
         </header>
 
         <!-- SIDEBAR (FOR DESKTOP) -->
-        <aside id="main-sidebar" class="fixed left-0 top-0 h-full w-20 md:w-64 bg-surface-inset border-r border-white/5 pt-20 flex flex-col z-40 transition-all duration-300">
-            <div class="px-6 mb-8 hidden md:block">
+        <aside id="main-sidebar" class="fixed left-0 top-0 h-full w-64 bg-surface-inset border-r border-white/5 pt-20 hidden md:flex flex-col z-40 transition-all duration-300 overflow-hidden relative">
+            <div class="px-6 mb-8 sidebar-brand">
+                <button id="sidebar-toggle-btn" title="Toggle Sidebar">&#8249;</button>
                 <div class="text-primary-neon font-black text-lg">NEWTON_TIWARI</div>
                 <div class="text-on-surface-variant opacity-70 text-[10px] uppercase">VER_2.1.0</div>
             </div>
@@ -100,40 +94,40 @@
                     <li>
                         <a href="/" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
                             <span class="material-symbols-outlined text-xl">home</span>
-                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">HOME</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase sidebar-label">HOME</span>
                         </a>
                     </li>
                     <li>
                         <a href="/projects" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
                             <span class="material-symbols-outlined text-xl">grid_view</span>
-                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">PROJECTS</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase sidebar-label">PROJECTS</span>
                         </a>
                     </li>
                     <li>
                         <a href="/skills" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
                             <span class="material-symbols-outlined text-xl">psychology</span>
-                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">SKILLS</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase sidebar-label">SKILLS</span>
                         </a>
                     </li>
                     <li>
                         <a href="/contact" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
                             <span class="material-symbols-outlined text-xl">alternate_email</span>
-                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">CONTACT</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase sidebar-label">CONTACT</span>
                         </a>
                     </li>
                     <li>
                         <a href="/photos" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
                             <span class="material-symbols-outlined text-xl">photo_library</span>
-                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">PHOTOS</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase sidebar-label">PHOTOS</span>
                         </a>
                     </li>
                     <!-- ACTIVITY LOG WITH SUB-ICONS -->
                     <li>
                         <a href="/activity" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-tertiary-amber hover:bg-surface-raised stepped-transition group">
                             <span class="material-symbols-outlined text-xl">history</span>
-                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">ACTIVITY LOG</span>
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase sidebar-label">ACTIVITY LOG</span>
                         </a>
-                        <ul class="ml-12 mt-1 space-y-2 hidden md:block opacity-60">
+                        <ul class="ml-12 mt-1 space-y-2 opacity-60 sidebar-sub">
                             <li>
                                 <a href="/play" class="flex items-center gap-3 text-[9px] font-bold tracking-widest hover:text-primary-neon stepped-transition">
                                     <span class="material-symbols-outlined text-xs">videogame_asset</span> GAME
@@ -158,13 +152,43 @@
             <div class="px-6 py-8 border-t border-white/5">
                 <a href="#" class="flex items-center gap-4 text-tertiary-amber hover:opacity-70 stepped-transition group shutdown-trigger">
                     <span class="material-symbols-outlined text-xl">power_settings_new</span>
-                    <span class="text-[10px] font-bold tracking-[0.2em] uppercase hidden md:block">SYS_OFF</span>
+                    <span class="text-[10px] font-bold tracking-[0.2em] uppercase sidebar-label">SYS_OFF</span>
                 </a>
             </div>
         </aside>
 
+
+        <!-- MOBILE OVERLAY -->
+        <div id="mobile-overlay"></div>
+
+        <!-- MOBILE DRAWER -->
+        <div id="mobile-drawer">
+            <div class="drawer-header">
+                <div class="drawer-name">NEWTON_TIWARI</div>
+                <div class="drawer-ver">VER_2.1.0</div>
+            </div>
+            <nav>
+                <a href="/"><span class="material-symbols-outlined">home</span> HOME</a>
+                <a href="/projects"><span class="material-symbols-outlined">grid_view</span> PROJECTS</a>
+                <a href="/skills"><span class="material-symbols-outlined">psychology</span> SKILLS</a>
+                <a href="/contact"><span class="material-symbols-outlined">alternate_email</span> CONTACT</a>
+                <a href="/photos"><span class="material-symbols-outlined">photo_library</span> PHOTOS</a>
+                <a href="/activity"><span class="material-symbols-outlined">history</span> ACTIVITY LOG</a>
+                <div class="drawer-sub">
+                    <a href="/play"><span class="material-symbols-outlined">videogame_asset</span> GAME</a>
+                    <a href="/books"><span class="material-symbols-outlined">library_books</span> BOOKS</a>
+                    <a href="/research"><span class="material-symbols-outlined">description</span> RESEARCH</a>
+                </div>
+            </nav>
+            <div class="drawer-footer">
+                <a href="#" class="shutdown-trigger">
+                    <span class="material-symbols-outlined">power_settings_new</span> SYS_OFF
+                </a>
+            </div>
+        </div>
+
         <!-- MAIN CONTENT AREA -->
-        <main id="main-content" class="ml-16 md:ml-20 pt-16 flex-1 relative overflow-hidden transition-all duration-300">
+        <main id="main-content" class="ml-0 md:ml-64 pt-16 flex-1 relative overflow-hidden transition-all duration-300">
             <!-- DECORATIVE GRID -->
             <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#00ff41 1px, transparent 1px); background-size: 40px 40px;"></div>
 
@@ -263,7 +287,7 @@
         </main>
 
         <!-- FOOTER -->
-        <footer id="main-footer" class="ml-16 md:ml-64 py-4 px-8 border-t border-white/5 flex justify-between items-center text-[10px] tracking-widest text-on-surface-variant/50 transition-all duration-300">
+        <footer id="main-footer" class="ml-0 md:ml-64 py-4 px-8 border-t border-white/5 flex justify-between items-center text-[10px] tracking-widest text-on-surface-variant/50 transition-all duration-300">
             <div>© 2026 NEWTON_TIWARI</div>
             <div class="flex gap-6">
                 <a href="https://github.com/Nwtnn" target="_blank" class="hover:text-primary-neon stepped-transition">GITHUB</a>
