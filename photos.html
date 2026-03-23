@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Newton_Tiwari//Establish_connection</title>
+    <title>Newton Tiwari</title>
     <meta name="description" content="Newton Tiwari - Photo Gallery. Visual collection of projects, captures, and digital art.">
     <meta name="keywords" content="Newton Tiwari, Photos, Gallery, Visuals, Portfolio">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -46,6 +46,15 @@
         });
     </script>
     <script src="system.js" defer></script>
+
+    <script>
+        if (sessionStorage.getItem('splashShown')) {
+            document.documentElement.classList.add('splash-hidden');
+        }
+    </script>
+    <style>
+        html.splash-hidden #splash-screen { display: none !important; animation: none !important; opacity: 0 !important; visibility: hidden !important; }
+    </style>
 </head>
 <body class="bg-surface text-on-surface selection:bg-primary-neon selection:text-black">
     <!-- SPLASH SCREEN -->

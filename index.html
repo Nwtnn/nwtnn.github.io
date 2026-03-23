@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Newton_Tiwari//Establish_connection</title>
+    <title>Newton Tiwari</title>
     <meta name="description" content="Newton Tiwari - Portfolio. Game Developer and Cyber Security Engineer. Explore Unity projects, security audits, and more.">
     <meta name="keywords" content="Newton Tiwari, Game Development, Unity, C#, Cyber Security, Portfolio, Deerhold, Hamro Patro">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -46,6 +46,15 @@
         });
     </script>
     <script src="system.js" defer></script>
+
+    <script>
+        if (sessionStorage.getItem('splashShown')) {
+            document.documentElement.classList.add('splash-hidden');
+        }
+    </script>
+    <style>
+        html.splash-hidden #splash-screen { display: none !important; animation: none !important; opacity: 0 !important; visibility: hidden !important; }
+    </style>
 </head>
 <body class="bg-surface text-on-surface selection:bg-primary-neon selection:text-black">
     <!-- SPLASH SCREEN -->
@@ -194,7 +203,7 @@
             <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#00ff41 1px, transparent 1px); background-size: 40px 40px;"></div>
 
             <!-- HERO SECTION -->
-            <section id="home" class="min-h-[80vh] flex flex-col pt-12 md:pt-32 px-8 md:px-16 max-w-6xl mx-auto relative z-10">
+            <section id="home" class="min-h-[80vh] flex flex-col pt-4 md:pt-8 px-8 md:px-16 max-w-6xl mx-auto relative z-10">
                 <div class="mb-4 flex items-center gap-3">
                     <div class="h-0.5 w-12 bg-primary-neon"></div>
                     <span class="text-primary-neon text-[10px] tracking-[0.4em] uppercase">Identity_Handshake_Complete</span>
