@@ -138,57 +138,130 @@
 
             <!-- ACTIVITY HUB SECTION -->
             <section id="activity-hub" class="pt-8 pb-24 px-8 md:px-16 max-w-7xl mx-auto relative z-10">
-                
-                <!-- PART 1: PROFESSIONAL_PROCESSES -->
+
+                <!-- PART 1: LEARNING_QUEUE -->
                 <div class="mb-24">
                     <div class="mb-12">
                         <div class="flex items-center gap-3 mb-2">
                             <span class="w-1.5 h-1.5 bg-primary-neon"></span>
-                            <h2 class="text-3xl font-bold tracking-tighter uppercase font-mono">&gt; PROFESSIONAL_PROCESSES</h2>
+                            <h2 class="text-3xl font-bold tracking-tighter uppercase font-mono">&gt; LEARNING_QUEUE</h2>
                         </div>
                         <div class="h-0.5 w-32 bg-primary-neon/30 mb-4"></div>
                         <p class="text-[10px] text-on-surface-variant max-w-xl leading-relaxed uppercase tracking-widest opacity-60">
-                            Current technical focus, research cycles, and professional development logs. 
+                            Topics currently loaded into working memory. Actively studying, queued, or archived.
                         </p>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- PROFESSIONAL ITEM 1 -->
-                        <div class="bg-surface-inset border border-white/5 p-6 hover:border-primary-neon transition-all group relative overflow-hidden">
-                            <div class="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-30 transition-opacity">
-                                <span class="material-symbols-outlined text-4xl">terminal</span>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- TOPIC 1 -->
+                        <div class="bg-surface-inset border border-white/5 p-6 hover:border-primary-neon transition-all group">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-[10px] px-2 py-0.5 bg-primary-neon/10 text-primary-neon border border-primary-neon/20 font-bold">ACTIVE</span>
+                                <span class="text-[9px] text-on-surface-variant opacity-40 font-mono">2026.03</span>
                             </div>
-                            <div class="flex items-center gap-3 mb-4">
-                                <span class="text-[10px] px-2 py-0.5 bg-primary-neon/10 text-primary-neon border border-primary-neon/20 font-bold">RESEARCH</span>
-                                <span class="text-[9px] text-on-surface-variant opacity-40 font-mono">STATUS: IN_PROGRESS</span>
-                            </div>
-                            <h3 class="text-sm font-bold tracking-widest uppercase mb-2">Kernel Exploitation Patterns</h3>
-                            <p class="text-[11px] text-on-surface-variant leading-relaxed mb-4">Analyzing modern mitigation bypass techniques and heap grooming strategies in Unix environments.</p>
-                            <div class="flex gap-4">
-                                <div class="h-1 flex-1 bg-white/5 overflow-hidden rounded-full">
-                                    <div class="h-full bg-primary-neon w-[65%] shadow-[0_0_10px_#00ff41]"></div>
-                                </div>
-                                <span class="text-[9px] font-bold text-primary-neon self-center">65%</span>
+                            <h3 class="text-sm font-bold tracking-widest uppercase mb-3 group-hover:text-primary-neon transition-colors">Web Application Pentesting</h3>
+                            <p class="text-[11px] text-on-surface-variant leading-relaxed mb-4">OWASP Top 10, Burp Suite workflows, SQL injection, XSS, and authentication bypass techniques.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-[9px] px-1.5 py-0.5 bg-white/5 text-on-surface-variant">Burp Suite</span>
+                                <span class="text-[9px] px-1.5 py-0.5 bg-white/5 text-on-surface-variant">OWASP</span>
+                                <span class="text-[9px] px-1.5 py-0.5 bg-white/5 text-on-surface-variant">SQLMap</span>
                             </div>
                         </div>
 
-                        <!-- PROFESSIONAL ITEM 2 -->
-                        <div class="bg-surface-inset border border-white/5 p-6 hover:border-primary-neon transition-all group relative overflow-hidden">
-                            <div class="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-30 transition-opacity">
-                                <span class="material-symbols-outlined text-4xl">sports_esports</span>
+                        <!-- TOPIC 2 -->
+                        <div class="bg-surface-inset border border-white/5 p-6 hover:border-primary-neon transition-all group">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-[10px] px-2 py-0.5 bg-primary-neon/10 text-primary-neon border border-primary-neon/20 font-bold">ACTIVE</span>
+                                <span class="text-[9px] text-on-surface-variant opacity-40 font-mono">2026.02</span>
                             </div>
-                            <div class="flex items-center gap-3 mb-4">
-                                <span class="text-[10px] px-2 py-0.5 bg-secondary-cyan/10 text-secondary-cyan border border-secondary-cyan/20 font-bold">GAME_DEV</span>
-                                <span class="text-[9px] text-on-surface-variant opacity-40 font-mono">STATUS: PROTOTYPING</span>
+                            <h3 class="text-sm font-bold tracking-widest uppercase mb-3 group-hover:text-primary-neon transition-colors">Network Reconnaissance</h3>
+                            <p class="text-[11px] text-on-surface-variant leading-relaxed mb-4">Port scanning, service enumeration, OSINT gathering, and network mapping with Nmap and Shodan.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-[9px] px-1.5 py-0.5 bg-white/5 text-on-surface-variant">Nmap</span>
+                                <span class="text-[9px] px-1.5 py-0.5 bg-white/5 text-on-surface-variant">Shodan</span>
+                                <span class="text-[9px] px-1.5 py-0.5 bg-white/5 text-on-surface-variant">OSINT</span>
                             </div>
-                            <h3 class="text-sm font-bold tracking-widest uppercase mb-2">Procedural Engine Core</h3>
-                            <p class="text-[11px] text-on-surface-variant leading-relaxed mb-4">Building a custom Voxel-based rendering pipeline for immersive environmental interactions.</p>
-                            <div class="flex gap-4">
-                                <div class="h-1 flex-1 bg-white/5 overflow-hidden rounded-full">
-                                    <div class="h-full bg-secondary-cyan w-[40%] shadow-[0_0_10px_#9cf0ff]"></div>
-                                </div>
-                                <span class="text-[9px] font-bold text-secondary-cyan self-center">40%</span>
+                        </div>
+
+                        <!-- TOPIC 3 -->
+                        <div class="bg-surface-inset border border-white/5 p-6 hover:border-secondary-cyan transition-all group">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-[10px] px-2 py-0.5 bg-secondary-cyan/10 text-secondary-cyan border border-secondary-cyan/20 font-bold">QUEUED</span>
+                                <span class="text-[9px] text-on-surface-variant opacity-40 font-mono">—</span>
                             </div>
+                            <h3 class="text-sm font-bold tracking-widest uppercase mb-3 group-hover:text-secondary-cyan transition-colors">Binary Exploitation</h3>
+                            <p class="text-[11px] text-on-surface-variant leading-relaxed mb-4">Buffer overflows, ROP chains, format string bugs, and shellcode development on Linux.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-[9px] px-1.5 py-0.5 bg-white/5 text-on-surface-variant">GDB</span>
+                                <span class="text-[9px] px-1.5 py-0.5 bg-white/5 text-on-surface-variant">pwntools</span>
+                                <span class="text-[9px] px-1.5 py-0.5 bg-white/5 text-on-surface-variant">x86</span>
+                            </div>
+                        </div>
+
+                        <!-- TOPIC 4 -->
+                        <div class="bg-surface-inset border border-white/5 p-6 hover:border-secondary-cyan transition-all group">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-[10px] px-2 py-0.5 bg-secondary-cyan/10 text-secondary-cyan border border-secondary-cyan/20 font-bold">QUEUED</span>
+                                <span class="text-[9px] text-on-surface-variant opacity-40 font-mono">—</span>
+                            </div>
+                            <h3 class="text-sm font-bold tracking-widest uppercase mb-3 group-hover:text-secondary-cyan transition-colors">Malware Analysis</h3>
+                            <p class="text-[11px] text-on-surface-variant leading-relaxed mb-4">Static and dynamic analysis of malicious binaries, reverse engineering with Ghidra, and sandbox evasion.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-[9px] px-1.5 py-0.5 bg-white/5 text-on-surface-variant">Ghidra</span>
+                                <span class="text-[9px] px-1.5 py-0.5 bg-white/5 text-on-surface-variant">IDA</span>
+                                <span class="text-[9px] px-1.5 py-0.5 bg-white/5 text-on-surface-variant">YARA</span>
+                            </div>
+                        </div>
+
+                        <!-- TOPIC 5 -->
+                        <div class="bg-surface-inset border border-white/5 p-6 hover:border-primary-neon transition-all group opacity-60">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-[10px] px-2 py-0.5 bg-white/5 text-on-surface-variant border border-white/10 font-bold">COMPLETED</span>
+                                <span class="text-[9px] text-on-surface-variant opacity-40 font-mono">2025.12</span>
+                            </div>
+                            <h3 class="text-sm font-bold tracking-widest uppercase mb-3">Linux Fundamentals</h3>
+                            <p class="text-[11px] text-on-surface-variant leading-relaxed mb-4">System administration, bash scripting, process management, and privilege escalation basics.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-[9px] px-1.5 py-0.5 bg-white/5 text-on-surface-variant">Bash</span>
+                                <span class="text-[9px] px-1.5 py-0.5 bg-white/5 text-on-surface-variant">systemd</span>
+                                <span class="text-[9px] px-1.5 py-0.5 bg-white/5 text-on-surface-variant">cron</span>
+                            </div>
+                        </div>
+
+                        <!-- TOPIC 6 -->
+                        <div class="bg-surface-inset border border-white/5 p-6 hover:border-primary-neon transition-all group opacity-60">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-[10px] px-2 py-0.5 bg-white/5 text-on-surface-variant border border-white/10 font-bold">COMPLETED</span>
+                                <span class="text-[9px] text-on-surface-variant opacity-40 font-mono">2025.09</span>
+                            </div>
+                            <h3 class="text-sm font-bold tracking-widest uppercase mb-3">Unity Game Development</h3>
+                            <p class="text-[11px] text-on-surface-variant leading-relaxed mb-4">C# scripting, physics systems, procedural generation, and shader programming in Unity engine.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-[9px] px-1.5 py-0.5 bg-white/5 text-on-surface-variant">C#</span>
+                                <span class="text-[9px] px-1.5 py-0.5 bg-white/5 text-on-surface-variant">Unity</span>
+                                <span class="text-[9px] px-1.5 py-0.5 bg-white/5 text-on-surface-variant">ShaderLab</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PART 2: RECENT_COMMITS -->
+                <div class="mb-24">
+                    <div class="mb-12">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="w-1.5 h-1.5 bg-secondary-cyan"></span>
+                            <h2 class="text-3xl font-bold tracking-tighter uppercase font-mono">&gt; RECENT_COMMITS</h2>
+                        </div>
+                        <div class="h-0.5 w-32 bg-secondary-cyan/30 mb-4"></div>
+                        <p class="text-[10px] text-on-surface-variant max-w-xl leading-relaxed uppercase tracking-widest opacity-60">
+                            Live feed from GitHub. Latest pushes across all public repositories.
+                        </p>
+                    </div>
+
+                    <div id="commits-feed" class="space-y-3">
+                        <div class="flex items-center gap-3 py-8 justify-center">
+                            <div class="w-2 h-2 bg-secondary-cyan animate-pulse"></div>
+                            <span class="text-[10px] text-on-surface-variant uppercase tracking-widest opacity-60">Fetching commit log...</span>
                         </div>
                     </div>
                 </div>
@@ -261,5 +334,55 @@
         </footer>
 
     </div>
+<script>
+// Fetch recent GitHub commits for RECENT_COMMITS section
+(function() {
+    const feed = document.getElementById('commits-feed');
+    if (!feed) return;
+
+    function timeAgo(date) {
+        const s = Math.floor((Date.now() - new Date(date)) / 1000);
+        if (s < 60) return s + 's ago';
+        const m = Math.floor(s / 60);
+        if (m < 60) return m + 'm ago';
+        const h = Math.floor(m / 60);
+        if (h < 24) return h + 'h ago';
+        const d = Math.floor(h / 24);
+        return d + 'd ago';
+    }
+
+    fetch('https://api.github.com/users/Nwtnn/events/public?per_page=30')
+        .then(r => r.json())
+        .then(events => {
+            const pushes = events.filter(e => e.type === 'PushEvent').slice(0, 10);
+            if (!pushes.length) {
+                feed.innerHTML = '<p class="text-[10px] text-on-surface-variant opacity-40 text-center py-8 uppercase tracking-widest">No recent push events found.</p>';
+                return;
+            }
+            feed.innerHTML = pushes.map(e => {
+                const repo = e.repo.name.split('/')[1];
+                const commits = e.payload.commits || [];
+                const msg = commits.length ? commits[commits.length - 1].message.split('\n')[0] : 'No message';
+                const time = timeAgo(e.created_at);
+                const count = commits.length;
+                return `
+                    <div class="bg-surface-inset border border-white/5 px-5 py-4 flex items-start gap-4 hover:border-secondary-cyan/30 transition-all group">
+                        <div class="w-1.5 h-1.5 bg-secondary-cyan mt-1.5 shrink-0"></div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-3 mb-1.5 flex-wrap">
+                                <span class="text-[10px] font-bold text-secondary-cyan tracking-widest uppercase">${repo}</span>
+                                <span class="text-[9px] text-on-surface-variant opacity-30 font-mono">${count} commit${count > 1 ? 's' : ''}</span>
+                            </div>
+                            <p class="text-[11px] text-on-surface-variant leading-relaxed truncate">${msg}</p>
+                        </div>
+                        <span class="text-[9px] text-on-surface-variant opacity-30 font-mono whitespace-nowrap shrink-0">${time}</span>
+                    </div>`;
+            }).join('');
+        })
+        .catch(() => {
+            feed.innerHTML = '<p class="text-[10px] text-on-surface-variant opacity-40 text-center py-8 uppercase tracking-widest">CONNECTION_REFUSED // GitHub API unreachable.</p>';
+        });
+})();
+</script>
 </body>
 </html>
