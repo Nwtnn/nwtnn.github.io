@@ -25,7 +25,24 @@ function initSplash() {
     window.name = 'splashShown';
     document.cookie = "splashShown=true; max-age=86400; path=/";
 
-    setTimeout(() => { splash.style.display = 'none'; }, 2000);
+    // Wait for Tailwind to finish processing before fading splash
+    function tryFade() {
+        const nav = document.getElementById('top-nav');
+        const twReady = nav && window.getComputedStyle(nav).display === 'flex';
+        if (twReady || document.readyState === 'complete') {
+            // Show splash for at least 1.5s, then fade
+            setTimeout(() => {
+                splash.classList.add('fade-out');
+                splash.addEventListener('transitionend', () => {
+                    splash.style.display = 'none';
+                }, { once: true });
+            }, 1500);
+        } else {
+            requestAnimationFrame(tryFade);
+        }
+    }
+    // Start checking after a small delay
+    setTimeout(tryFade, 300);
 }
 
 function initSidebar() {

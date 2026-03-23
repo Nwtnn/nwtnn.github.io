@@ -41,11 +41,12 @@ body {
     align-items: center;
     justify-content: center;
     pointer-events: none;
-    animation: splashFade 2s ease forwards;
+    opacity: 1;
+    transition: opacity 0.6s ease;
 }
-@keyframes splashFade {
-    0%, 60% { opacity: 1; }
-    100% { opacity: 0; display: none; }
+#splash-screen.fade-out {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .splash-name {
