@@ -82,6 +82,7 @@ body {
 ===================================================== */
 main {
     padding-top: 64px; /* Exact height of fixed header */
+    min-height: calc(100vh - 120px); /* Pushes the footer appropriately down */
 }
 
 section {
