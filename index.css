@@ -129,6 +129,75 @@ section {
 @media (max-width: 767px) { #mobile-drawer { display: flex; } }
 #mobile-drawer.active { transform: translateX(0); }
 
+#mobile-drawer .drawer-header {
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+    border-bottom: 1px solid var(--outline-variant);
+    margin-bottom: 1rem;
+}
+#mobile-drawer .drawer-name {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: 0.1em;
+}
+#mobile-drawer .drawer-ver {
+    color: var(--on-surface-variant);
+    font-size: 0.65rem;
+    opacity: 0.7;
+    letter-spacing: 0.2em;
+}
+#mobile-drawer nav {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+    gap: 0.5rem;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+#mobile-drawer a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+#mobile-drawer a:hover, #mobile-drawer a.active-nav-link {
+    background: rgba(0, 255, 65, 0.1);
+    box-shadow: inset 2px 0 0 0 var(--primary);
+}
+#mobile-drawer .material-symbols-outlined { font-size: 1.25rem; }
+#mobile-drawer .drawer-sub {
+    margin-left: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+#mobile-drawer .drawer-sub a {
+    font-size: 0.7rem;
+    padding: 0.5rem;
+    color: var(--on-surface-variant);
+}
+#mobile-drawer .drawer-sub a:hover { color: var(--primary); }
+#mobile-drawer .drawer-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--outline-variant);
+}
+#mobile-drawer .shutdown-trigger {
+    color: var(--tertiary);
+}
+#mobile-drawer .shutdown-trigger:hover {
+    background: rgba(255, 186, 56, 0.1);
+    box-shadow: inset 2px 0 0 0 var(--tertiary);
+}
+
 #mobile-overlay {
     display: none;
     position: fixed;
