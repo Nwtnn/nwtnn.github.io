@@ -47,21 +47,13 @@ body {
     pointer-events: none;
 }
 
-#splash-screen .splash-logo {
-    font-size: clamp(5rem, 20vw, 10rem);
-    font-weight: 900;
-    color: var(--primary);
-    text-shadow: 0 0 30px rgba(0,255,65,0.8), 0 0 60px rgba(0,255,65,0.4), 0 0 120px rgba(0,255,65,0.2);
-    letter-spacing: -0.04em;
-    line-height: 1;
-    animation: splashLogoGlow 2s ease forwards;
-}
-
 #splash-screen .splash-name {
-    font-size: clamp(0.65rem, 3vw, 0.85rem);
-    letter-spacing: 0.5em;
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: 0.1em;
+    font-family: 'Space Grotesk', monospace;
     text-transform: uppercase;
-    color: var(--on-surface-variant);
+    color: var(--primary);
+    text-shadow: 0 0 15px rgba(0,255,65,0.8), 0 0 30px rgba(0,255,65,0.4), 0 0 60px rgba(0,255,65,0.2);
     opacity: 0;
     animation: splashNameReveal 2s ease forwards;
     animation-delay: 0.3s;

@@ -48,7 +48,7 @@
     <script src="system.js" defer></script>
 
     <script>
-        if (sessionStorage.getItem('splashShown')) {
+        if (localStorage.getItem('splashShown')) {
             document.documentElement.classList.add('splash-hidden');
         }
     </script>
@@ -59,8 +59,7 @@
 <body class="bg-surface text-on-surface selection:bg-primary-neon selection:text-black">
     <!-- SPLASH SCREEN -->
     <div id="splash-screen">
-        <div class="splash-logo">N</div>
-        <div class="splash-name">Newton Tiwari</div>
+                <div class="splash-name">Newton Tiwari</div>
     </div>
 
     
@@ -203,7 +202,7 @@
             <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#00ff41 1px, transparent 1px); background-size: 40px 40px;"></div>
 
             <!-- HERO SECTION -->
-            <section id="home" class="min-h-[80vh] flex flex-col pt-4 md:pt-8 px-8 md:px-16 max-w-6xl mx-auto relative z-10">
+            <section id="home" class="pt-8 md:pt-12 px-8 md:px-16 max-w-6xl mx-auto relative z-10">
                 <div class="mb-4 flex items-center gap-3">
                     <div class="h-0.5 w-12 bg-primary-neon"></div>
                     <span class="text-primary-neon text-[10px] tracking-[0.4em] uppercase">Identity_Handshake_Complete</span>

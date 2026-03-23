@@ -15,12 +15,12 @@ function initSplash() {
     const splash = document.getElementById('splash-screen');
     if (!splash) return;
 
-    if (sessionStorage.getItem('splashShown')) {
+    if (localStorage.getItem('splashShown')) {
         splash.style.display = 'none';
         return;
     }
 
-    sessionStorage.setItem('splashShown', 'true');
+    localStorage.setItem('splashShown', 'true');
     setTimeout(() => { splash.style.display = 'none'; }, 2000);
 }
 

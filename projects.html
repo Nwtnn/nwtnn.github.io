@@ -48,7 +48,7 @@
     <script src="system.js" defer></script>
 
     <script>
-        if (sessionStorage.getItem('splashShown')) {
+        if (localStorage.getItem('splashShown')) {
             document.documentElement.classList.add('splash-hidden');
         }
     </script>
@@ -59,8 +59,7 @@
 <body class="bg-surface text-on-surface selection:bg-primary-neon selection:text-black">
     <!-- SPLASH SCREEN -->
     <div id="splash-screen">
-        <div class="splash-logo">N</div>
-        <div class="splash-name">Newton Tiwari</div>
+                <div class="splash-name">Newton Tiwari</div>
     </div>
 
     
