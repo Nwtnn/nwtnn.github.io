@@ -194,6 +194,7 @@ body {
     aside.sidebar-collapsed .sidebar-label { opacity: 0; width: 0; overflow: hidden; pointer-events: none; }
     aside.sidebar-collapsed .sidebar-sub   { display: none; }
     aside.sidebar-collapsed .sidebar-brand-text { display: none; }
+    aside.sidebar-collapsed .sidebar-brand > div { display: none; }
 
     header, main, footer {
         margin-left: var(--sidebar-w);

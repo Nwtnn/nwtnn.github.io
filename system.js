@@ -14,6 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
 function initSplash() {
     const splash = document.getElementById('splash-screen');
     if (!splash) return;
+
+    if (sessionStorage.getItem('splashShown')) {
+        splash.style.display = 'none';
+        return;
+    }
+
+    sessionStorage.setItem('splashShown', 'true');
     setTimeout(() => { splash.style.display = 'none'; }, 2000);
 }
 
