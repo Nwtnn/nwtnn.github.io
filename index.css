@@ -82,7 +82,7 @@ body {
 ===================================================== */
 main {
     padding-top: 64px; /* Exact height of fixed header */
-    min-height: calc(100vh - 120px); /* Pushes the footer appropriately down */
+    flex-grow: 1; /* Pushes the footer appropriately down */
 }
 
 section {
@@ -144,7 +144,12 @@ section {
 ===================================================== */
 .reveal { opacity: 1 !important; transform: none !important; } /* Ensure visibility */
 
-.crt-flicker { animation: flicker 0.15s infinite; }
+.crt-flicker { 
+    animation: flicker 0.15s infinite;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 @keyframes flicker {
     0%, 100% { opacity: 0.98; }
     50% { opacity: 1; }
