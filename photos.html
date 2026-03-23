@@ -67,16 +67,26 @@
     <div class="scanline-overlay"></div>
 
     <!-- MAIN WRAPPER FOR FLICKER -->
-    <div class="crt-flicker min-h-screen flex flex-col">
+    <div class="crt-flicker min-h-screen">
         
         <!-- HEADER / NAVIGATION -->
-        <header id="main-header" class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-sm border-b border-white/5 px-6 py-3 flex justify-between items-center transition-all duration-300">
+        <header id="main-header" class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-sm border-b border-white/5 px-6 py-3 flex items-center gap-8 transition-all duration-300">
             <div class="flex items-center gap-4">
-                <span class="text-primary-neon font-bold tracking-widest sidebar-toggle hover:glow-primary transition-all fixed left-1/2 -translate-x-1/2 top-[1.125rem] whitespace-nowrap">[newton@portfolio ~]$</span>
+                <span class="text-primary-neon font-bold tracking-widest sidebar-toggle hover:glow-primary transition-all whitespace-nowrap">[newton@portfolio ~]$</span>
                 <button id="mobile-menu-btn" aria-label="Open navigation">&#9776;</button>
-                
             </div>
-            <div class="flex items-center gap-4 text-xs">
+            
+            <!-- TOP NAVIGATION (DESKTOP) -->
+            <nav id="top-nav" class="hidden md:flex items-center gap-8 text-[10px] font-bold tracking-[0.2em] uppercase">
+                <a href="/" class="hover:text-primary-neon stepped-transition">HOME</a>
+                <a href="/projects" class="hover:text-primary-neon stepped-transition">PROJECTS</a>
+                <a href="/skills" class="hover:text-primary-neon stepped-transition">SKILLS</a>
+                <a href="/photos" class="hover:text-primary-neon stepped-transition">PHOTOS</a>
+                <a href="/activity" class="hover:text-tertiary-amber stepped-transition">ACTIVITY LOG</a>
+                <a href="/contact" class="hover:text-primary-neon stepped-transition">CONTACT</a>
+            </nav>
+
+            <div class="ml-auto flex items-center gap-4 text-xs system-status">
                 <div class="flex items-center gap-2">
                     <div class="w-2 h-2 bg-primary-neon shadow-[0_0_8px_#00ff41] animate-pulse"></div>
                     <span class="text-primary-neon opacity-70">SYSTEM_ACTIVE</span>
@@ -86,81 +96,7 @@
         </header>
 
         <!-- SIDEBAR (FOR DESKTOP) -->
-        <aside id="main-sidebar" class="fixed left-0 top-0 h-full w-64 bg-surface-inset border-r border-white/5 pt-20 hidden md:flex flex-col z-40 transition-all duration-300 overflow-hidden relative">
-            <div class="px-6 mb-8 sidebar-brand">
-                <button id="sidebar-toggle-btn" title="Toggle Sidebar">&#8249;</button>
-                <div class="text-primary-neon font-black text-lg">NEWTON_TIWARI</div>
-                <div class="text-on-surface-variant opacity-70 text-[10px] uppercase">VER_2.1.0</div>
-            </div>
-            
-            <nav class="flex-1">
-                <ul class="space-y-1">
-                    <li>
-                        <a href="/" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
-                            <span class="material-symbols-outlined text-xl">home</span>
-                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase sidebar-label">HOME</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/projects" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
-                            <span class="material-symbols-outlined text-xl">grid_view</span>
-                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase sidebar-label">PROJECTS</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/skills" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
-                            <span class="material-symbols-outlined text-xl">psychology</span>
-                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase sidebar-label">SKILLS</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/photos" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
-                            <span class="material-symbols-outlined text-xl">photo_library</span>
-                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase sidebar-label">PHOTOS</span>
-                        </a>
-                    </li>
-                    <!-- ACTIVITY LOG WITH SUB-ICONS -->
-                    <li>
-                        <a href="/activity" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-tertiary-amber hover:bg-surface-raised stepped-transition group">
-                            <span class="material-symbols-outlined text-xl">history</span>
-                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase sidebar-label">ACTIVITY LOG</span>
-                        </a>
-                        <!-- Sub-icons for Activity Log -->
-                        <ul class="ml-12 mt-1 space-y-2 opacity-60 sidebar-sub">
-                            <li>
-                                <a href="/play" class="flex items-center gap-3 text-[9px] font-bold tracking-widest hover:text-primary-neon stepped-transition">
-                                    <span class="material-symbols-outlined text-xs">videogame_asset</span> GAME
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="/books" class="flex items-center gap-3 text-[9px] font-bold tracking-widest hover:text-primary-neon stepped-transition">
-                                    <span class="material-symbols-outlined text-xs">library_books</span> BOOKS
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/research" class="flex items-center gap-3 text-[9px] font-bold tracking-widest hover:text-primary-neon stepped-transition">
-                                    <span class="material-symbols-outlined text-xs">description</span> RESEARCH_PAPERS
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-<li>
-                        <a href="/contact" class="flex items-center gap-4 px-6 py-3 text-on-surface-variant hover:text-primary-neon hover:bg-surface-raised stepped-transition group">
-                            <span class="material-symbols-outlined text-xl">alternate_email</span>
-                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase sidebar-label">CONTACT</span>
-                        </a>
-                    </li>
-                                    </ul>
-            </nav>
-
-            <div class="px-6 py-8 border-t border-white/5">
-                <a href="#" class="flex items-center gap-4 text-tertiary-amber hover:opacity-70 stepped-transition group shutdown-trigger">
-                    <span class="material-symbols-outlined text-xl">power_settings_new</span>
-                    <span class="text-[10px] font-bold tracking-[0.2em] uppercase sidebar-label">SYS_OFF</span>
-                </a>
-            </div>
-        </aside>
+        
 
 
         <!-- MOBILE OVERLAY -->
@@ -176,7 +112,6 @@
                 <a href="/"><span class="material-symbols-outlined">home</span> HOME</a>
                 <a href="/projects"><span class="material-symbols-outlined">grid_view</span> PROJECTS</a>
                 <a href="/skills"><span class="material-symbols-outlined">psychology</span> SKILLS</a>
-                <a href="/contact"><span class="material-symbols-outlined">alternate_email</span> CONTACT</a>
                 <a href="/photos"><span class="material-symbols-outlined">photo_library</span> PHOTOS</a>
                 <a href="/activity"><span class="material-symbols-outlined">history</span> ACTIVITY LOG</a>
                 <div class="drawer-sub">
@@ -184,6 +119,7 @@
                     <a href="/books"><span class="material-symbols-outlined">library_books</span> BOOKS</a>
                     <a href="/research"><span class="material-symbols-outlined">description</span> RESEARCH</a>
                 </div>
+                <a href="/contact"><span class="material-symbols-outlined">alternate_email</span> CONTACT</a>
             </nav>
             <div class="drawer-footer">
                 <a href="#" class="shutdown-trigger">
@@ -191,9 +127,10 @@
                 </a>
             </div>
         </div>
+        <!-- END MOBILE DRAWER -->
 
         <!-- MAIN CONTENT AREA -->
-        <main id="main-content" class="ml-0 md:ml-64 pt-16 flex-1 relative overflow-hidden transition-all duration-300">
+        <main id="main-content" class="relative">
             <!-- DECORATIVE GRID -->
             <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#00ff41 1px, transparent 1px); background-size: 40px 40px;"></div>
 
@@ -224,7 +161,7 @@
         </main>
 
         <!-- FOOTER -->
-        <footer id="main-footer" class="ml-0 md:ml-64 py-4 px-8 border-t border-white/5 flex justify-between items-center text-[10px] tracking-widest text-on-surface-variant/50 transition-all duration-300">
+        <footer id="main-footer" class="py-4 px-8 border-t border-white/5 flex justify-between items-center text-[10px] tracking-widest text-on-surface-variant/50 transition-all duration-300">
             <div>© 2026 NEWTON_TIWARI</div>
             <div class="flex gap-6">
                 <a href="https://github.com/Nwtnn" target="_blank" class="hover:text-primary-neon stepped-transition">GITHUB</a>
