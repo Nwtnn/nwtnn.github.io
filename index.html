@@ -48,7 +48,7 @@
     <script src="system.js" defer></script>
 
     <script>
-        if (localStorage.getItem('splashShown')) {
+        if (localStorage.getItem('splashShown') || sessionStorage.getItem('splashShown') || window.name === 'splashShown' || document.cookie.includes('splashShown=true')) {
             document.documentElement.classList.add('splash-hidden');
         }
     </script>
@@ -72,14 +72,9 @@
         <!-- HEADER / NAVIGATION -->
         <header id="main-header" class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-sm border-b border-white/5 px-6 py-3 flex justify-between items-center transition-all duration-300">
             <div class="flex items-center gap-4">
-                <span class="text-primary-neon font-bold tracking-widest sidebar-toggle hover:glow-primary transition-all">[newton@portfolio ~]$</span>
+                <span class="text-primary-neon font-bold tracking-widest sidebar-toggle hover:glow-primary transition-all absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 whitespace-nowrap">[newton@portfolio ~]$</span>
                 <button id="mobile-menu-btn" aria-label="Open navigation">&#9776;</button>
-                <nav class="hidden md:flex gap-8">
-                    <a href="/" class="font-bold tracking-tight text-sm uppercase hover:opacity-80 stepped-transition text-on-surface-variant">HOME</a>
-                    <a href="/projects" class="text-on-surface-variant tracking-tight text-sm uppercase hover:text-primary-neon stepped-transition">PROJECTS</a>
-                    <a href="/skills" class="text-on-surface-variant tracking-tight text-sm uppercase hover:text-primary-neon stepped-transition">SKILLS</a>
-                    <a href="/contact" class="text-on-surface-variant tracking-tight text-sm uppercase hover:text-primary-neon stepped-transition">CONTACT</a>
-                </nav>
+                
             </div>
             <div class="flex items-center gap-4 text-xs">
                 <div class="flex items-center gap-2">
@@ -202,7 +197,7 @@
             <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#00ff41 1px, transparent 1px); background-size: 40px 40px;"></div>
 
             <!-- HERO SECTION -->
-            <section id="home" class="pt-8 md:pt-12 px-8 md:px-16 max-w-6xl mx-auto relative z-10">
+            <section id="home" class="pt-0 px-8 md:px-16 max-w-6xl mx-auto relative z-10">
                 <div class="mb-4 flex items-center gap-3">
                     <div class="h-0.5 w-12 bg-primary-neon"></div>
                     <span class="text-primary-neon text-[10px] tracking-[0.4em] uppercase">Identity_Handshake_Complete</span>

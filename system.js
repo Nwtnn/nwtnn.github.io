@@ -15,12 +15,16 @@ function initSplash() {
     const splash = document.getElementById('splash-screen');
     if (!splash) return;
 
-    if (localStorage.getItem('splashShown')) {
+    if (localStorage.getItem('splashShown') || sessionStorage.getItem('splashShown') || window.name === 'splashShown' || document.cookie.includes('splashShown=true')) {
         splash.style.display = 'none';
         return;
     }
 
     localStorage.setItem('splashShown', 'true');
+    sessionStorage.setItem('splashShown', 'true');
+    window.name = 'splashShown';
+    document.cookie = "splashShown=true; max-age=86400; path=/";
+
     setTimeout(() => { splash.style.display = 'none'; }, 2000);
 }
 
