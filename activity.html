@@ -310,7 +310,7 @@
                             <div class="flex justify-between items-start mb-4">
                                 <div class="flex items-center gap-2">
                                     <span class="material-symbols-outlined text-sm text-secondary-cyan">description</span>
-                                    <span class="text-[10px] font-bold tracking-widest uppercase">DIR/RESEARCH_LOG</span>
+                                    <span class="text-[10px] font-bold tracking-widest uppercase">DIR/CTF/Machines</span>
                                 </div>
                                 <span class="material-symbols-outlined text-[10px] text-on-surface-variant group-hover:translate-x-1 transition-transform">arrow_forward_ios</span>
                             </div>
@@ -354,7 +354,7 @@
     fetch('https://api.github.com/users/Nwtnn/events/public?per_page=30')
         .then(r => r.json())
         .then(events => {
-            const pushes = events.filter(e => e.type === 'PushEvent').slice(0, 10);
+            const pushes = events.filter(e => e.type === 'PushEvent').slice(0, 3);
             if (!pushes.length) {
                 feed.innerHTML = '<p class="text-[10px] text-on-surface-variant opacity-40 text-center py-8 uppercase tracking-widest">No recent push events found.</p>';
                 return;
