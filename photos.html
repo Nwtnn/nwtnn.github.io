@@ -9,6 +9,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://v8.js-dos.com/latest/js-dos.css">
+    <script src="https://v8.js-dos.com/latest/js-dos.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <script>
@@ -182,51 +184,66 @@
     </div>
 
     <!-- DOOM MODAL -->
-    <div id="doom-modal" class="fixed inset-0 z-[9999] bg-black hidden flex-col transition-opacity duration-500 opacity-0" style="display:none;">
-        <div class="w-full h-12 bg-surface-inset border-b border-primary-neon/30 flex items-center justify-between px-6 z-10 shrink-0" style="flex-shrink:0;">
-            <div class="flex items-center gap-4">
-                <span class="text-primary-neon font-bold tracking-widest text-sm glow-primary">DOOM_SHAREWARE</span>
-                <span class="text-[10px] uppercase text-on-surface-variant opacity-50 tracking-[0.2em] hidden md:inline">&gt; RUNNING_IN_BROWSER_DOS</span>
+    <div id="doom-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:#000;flex-direction:column;opacity:0;transition:opacity 0.4s ease;">
+        <div style="width:100%;height:48px;flex-shrink:0;background:#0e0e0e;border-bottom:1px solid rgba(0,255,65,0.3);display:flex;align-items:center;justify-content:space-between;padding:0 24px;">
+            <div style="display:flex;align-items:center;gap:16px;">
+                <span style="color:#00ff41;font-weight:700;letter-spacing:0.15em;font-size:14px;text-shadow:0 0 8px #00ff41;">DOOM_SHAREWARE</span>
+                <span style="font-size:10px;text-transform:uppercase;opacity:0.5;letter-spacing:0.2em;">&gt; JS_DOS_V8</span>
             </div>
-            <button onclick="closeDoom()" class="text-primary-neon hover:text-white hover:bg-red-900/50 px-3 py-1 border border-primary-neon/30 text-[10px] font-bold tracking-widest uppercase transition-all">TERMINATE_SESSION</button>
+            <button onclick="closeDoom()" style="color:#00ff41;background:transparent;border:1px solid rgba(0,255,65,0.3);padding:4px 12px;font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;" onmouseover="this.style.background='rgba(127,0,0,0.5)'" onmouseout="this.style.background='transparent'">TERMINATE_SESSION</button>
         </div>
-        <div id="doom-iframe-container" style="flex:1;width:100%;position:relative;background:#000;"></div>
+        <div id="doom-container" style="flex:1;position:relative;overflow:hidden;">
+            <div id="dos" style="width:100%;height:100%;"></div>
+        </div>
     </div>
 
     <script>
+        let dosInstance = null;
+
         function openDoom() {
             const modal = document.getElementById('doom-modal');
-            // Use flex layout but show it
+            // Show as flex FIRST so the layout engine gives it real dimensions
             modal.style.display = 'flex';
-            modal.style.flexDirection = 'column';
-            // Fade in
+
+            // Double rAF: first frame applies display:flex, second frame layout is settled
             requestAnimationFrame(() => {
                 requestAnimationFrame(() => {
-                    modal.classList.remove('opacity-0');
+                    // Fade in
+                    modal.style.opacity = '1';
+
+                    if (!dosInstance) {
+                        const dosDiv = document.getElementById('dos');
+                        // Explicitly size the dos div to fill the container
+                        const container = document.getElementById('doom-container');
+                        dosDiv.style.width = container.clientWidth + 'px';
+                        dosDiv.style.height = container.clientHeight + 'px';
+
+                        dosInstance = Dos(dosDiv, {
+                            url: "https://cdn.dos.zone/original/2X/2/2364ed61f2b1b4d0e35b0c5eb4b30e1e3e4ce5d1.jsdos",
+                            autoStart: true,
+                            kiosk: false,
+                        });
+                    }
                 });
             });
-
-            // Inject iframe fresh each time so it always loads at the correct size
-            const container = document.getElementById('doom-iframe-container');
-            if (!container.querySelector('iframe')) {
-                const iframe = document.createElement('iframe');
-                iframe.src = 'https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2F2%2F2364ed61f2b1b4d0e35b0c5eb4b30e1e3e4ce5d1.jsdos&anonymous=1';
-                iframe.style.cssText = 'width:100%;height:100%;border:none;position:absolute;top:0;left:0;';
-                iframe.setAttribute('allowfullscreen', '');
-                iframe.setAttribute('allow', 'autoplay');
-                container.appendChild(iframe);
-            }
         }
 
         function closeDoom() {
             const modal = document.getElementById('doom-modal');
-            modal.classList.add('opacity-0');
+            modal.style.opacity = '0';
             setTimeout(() => {
                 modal.style.display = 'none';
-                // Remove iframe to stop emulation and free resources
-                const container = document.getElementById('doom-iframe-container');
-                container.innerHTML = '';
-            }, 500);
+                // Destroy the instance and reset so it reinitializes fresh next open
+                if (dosInstance) {
+                    try { dosInstance.stop(); } catch(e) {}
+                    dosInstance = null;
+                    // Clear the dos div so js-dos doesn't see stale canvas
+                    const dosDiv = document.getElementById('dos');
+                    dosDiv.innerHTML = '';
+                    dosDiv.style.width = '100%';
+                    dosDiv.style.height = '100%';
+                }
+            }, 400);
         }
     </script>
 </body>
