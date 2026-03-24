@@ -9,8 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="https://v8.js-dos.com/latest/js-dos.css">
-    <script src="https://v8.js-dos.com/latest/js-dos.js"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <script>
         tailwind.config = {
@@ -183,73 +182,50 @@
     </div>
 
     <!-- DOOM MODAL -->
-    <div id="doom-modal" class="fixed inset-0 z-[9999] bg-black hidden flex-col transition-opacity duration-500 opacity-0">
-        <div class="w-full h-12 bg-surface-inset border-b border-primary-neon/30 flex items-center justify-between px-6 z-10 shrink-0">
+    <div id="doom-modal" class="fixed inset-0 z-[9999] bg-black hidden flex-col transition-opacity duration-500 opacity-0" style="display:none;">
+        <div class="w-full h-12 bg-surface-inset border-b border-primary-neon/30 flex items-center justify-between px-6 z-10 shrink-0" style="flex-shrink:0;">
             <div class="flex items-center gap-4">
                 <span class="text-primary-neon font-bold tracking-widest text-sm glow-primary">DOOM_SHAREWARE</span>
-                <span class="text-[10px] uppercase text-on-surface-variant opacity-50 tracking-[0.2em] hidden md:inline">&gt; RUNNING_IN_JS_DOS_V8</span>
+                <span class="text-[10px] uppercase text-on-surface-variant opacity-50 tracking-[0.2em] hidden md:inline">&gt; RUNNING_IN_BROWSER_DOS</span>
             </div>
             <button onclick="closeDoom()" class="text-primary-neon hover:text-white hover:bg-red-900/50 px-3 py-1 border border-primary-neon/30 text-[10px] font-bold tracking-widest uppercase transition-all">TERMINATE_SESSION</button>
         </div>
-        <div class="w-full flex-grow relative bg-[#000]">
-            <!-- JS-DOS TARGET DIV -->
-            <div id="dos" class="w-full h-full absolute inset-0"></div>
-        </div>
+        <div id="doom-iframe-container" style="flex:1;width:100%;position:relative;background:#000;"></div>
     </div>
 
     <script>
-        let dosInstance = null;
-
         function openDoom() {
             const modal = document.getElementById('doom-modal');
-            modal.classList.remove('hidden');
-            // Small delay to allow display:block to apply before fading in
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-            }, 50);
+            // Use flex layout but show it
+            modal.style.display = 'flex';
+            modal.style.flexDirection = 'column';
+            // Fade in
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    modal.classList.remove('opacity-0');
+                });
+            });
 
-            // Initialize DOOM (only once) after the modal is visible in the DOM
-            // to ensure the canvas can compute its size correctly.
-            if (!dosInstance) {
-                setTimeout(() => {
-                    const targetArea = document.getElementById("dos");
-                    dosInstance = Dos(targetArea, {
-                        url: "https://cdn.dos.zone/original/2X/2/2364ed61f2b1b4d0e35b0c5eb4b30e1e3e4ce5d1.jsdos",
-                        theme: "light",          // Use generic light/dark or specify if you want
-                        autoStart: true,         // Start emulation immediately
-                        kiosk: false,            // Allow generic UI
-                        noNetworking: true       // It's local only
-                    });
-                }, 100);
+            // Inject iframe fresh each time so it always loads at the correct size
+            const container = document.getElementById('doom-iframe-container');
+            if (!container.querySelector('iframe')) {
+                const iframe = document.createElement('iframe');
+                iframe.src = 'https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2F2%2F2364ed61f2b1b4d0e35b0c5eb4b30e1e3e4ce5d1.jsdos&anonymous=1';
+                iframe.style.cssText = 'width:100%;height:100%;border:none;position:absolute;top:0;left:0;';
+                iframe.setAttribute('allowfullscreen', '');
+                iframe.setAttribute('allow', 'autoplay');
+                container.appendChild(iframe);
             }
         }
 
         function closeDoom() {
             const modal = document.getElementById('doom-modal');
             modal.classList.add('opacity-0');
-            
             setTimeout(() => {
-                modal.classList.add('hidden');
-                
-                // If we want to completely kill the emulator when closing:
-                // if (dosInstance) {
-                //     dosInstance.stop();
-                //     dosInstance = null;
-                // }
-                // For now, let's keep it running in background if they close it, 
-                // but usually browsers suspend heavy js. 
-                // To be safe and save resources, let's kill it on close.
-                
-                if (dosInstance && window.emulators) {
-                    // Try to stop the DOS player to free resources
-                    try {
-                        // The exact api to stop depends on js-dos v8 specifics
-                        // Usually reloading the page or emptying the container is the safest bet for v8 if there is no explicit destroy
-                        // We will just leave it running in memory, or reload page. Let's just hide it for now.
-                    } catch (e) {
-                        console.error(e);
-                    }
-                }
+                modal.style.display = 'none';
+                // Remove iframe to stop emulation and free resources
+                const container = document.getElementById('doom-iframe-container');
+                container.innerHTML = '';
             }, 500);
         }
     </script>
